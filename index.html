@@ -8,70 +8,61 @@
   @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Fredoka:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap');
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-    :root {
-    --teal-deep: #1E6B68;
-    --teal-mid: #3A9893;
-    --teal-shirt: #3A9893;
-    --teal-line: #2E827D;
-    --teal-card: #2B807B;
-    --berry: #9B5A87;
+  :root {
+    --teal-deep:  #1E6B68;
+    --teal-mid:   #3A9893;
+    --teal-line:  #2E827D;
+    --teal-card:  #2B807B;
+    --berry:      #9B5A87;
     --berry-deep: #7B426B;
-    --pink: #D98BC9;
-    --pink-bright: #E89FD6;
-    --cream: #FFFFFF;
-    --cream-dim: #E6F0ED;
-    --muted: #A9CCC7;
-    --win: #6FE0A6;
-    --loss: #F58AA1;
+    --pink:       #D98BC9;
+    --pink-bright:#E89FD6;
+    --cream:      #FFFFFF;
+    --cream-dim:  #E6F0ED;
+    --muted:      #A9CCC7;
+    --win:        #6FE0A6;
+    --loss:       #F58AA1;
   }
 
   body { background: var(--teal-deep); color: var(--cream); font-family: 'Inter', sans-serif; min-height: 100vh; padding-bottom: 60px; touch-action: manipulation; -webkit-text-size-adjust: 100%; }
 
-  /* HEADER with mascot */
-  header { background: var(--teal-shirt); border-bottom: 4px solid var(--pink); padding: 18px 20px 18px; display: flex; align-items: center; gap: 16px; justify-content: center; }
+  /* HEADER */
+  header { background: var(--teal-mid); border-bottom: 4px solid var(--pink); padding: 16px 20px; display: flex; align-items: center; gap: 16px; justify-content: center; }
   .mascot { width: 110px; height: 110px; flex-shrink: 0; filter: drop-shadow(0 3px 6px rgba(0,0,0,0.22)); }
   .header-text { text-align: left; }
-  .eyebrow { font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,246,238,0.7); margin-bottom: 2px; }
+  .eyebrow { font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,246,238,0.75); margin-bottom: 2px; }
   h1 { font-family: 'Fredoka', sans-serif; font-size: 46px; font-weight: 700; letter-spacing: 1px; color: var(--cream); line-height: 0.95; text-shadow: 2px 2px 0 var(--berry-deep); }
   .captain { margin-top: 3px; font-size: 11px; color: rgba(255,246,238,0.75); letter-spacing: 1px; text-transform: uppercase; }
 
   /* SCOREBOARD */
   .scoreboard { background: var(--teal-card); border-bottom: 1px solid var(--teal-line); padding: 22px 16px 18px; }
   .sb-title { font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); text-align: center; margin-bottom: 6px; }
-  .sb-game-label { font-family: 'Fredoka', sans-serif; font-size: 14px; font-weight: 600; letter-spacing: 0.5px; color: var(--pink-bright); text-align: center; margin-bottom: 16px; }
+  .sb-game-label { font-family: 'Fredoka', sans-serif; font-size: 14px; font-weight: 600; color: var(--pink-bright); text-align: center; margin-bottom: 16px; }
   .score-row { display: flex; align-items: center; justify-content: center; margin-bottom: 14px; }
   .score-team { display: flex; flex-direction: column; align-items: center; flex: 1; max-width: 200px; }
   .score-team-name { font-size: 12px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; text-align: center; margin-bottom: 4px; line-height: 1.2; }
   .score-team-name.goon { color: var(--pink-bright); }
-  .score-team-name.opp { color: var(--cream-dim); }
+  .score-team-name.opp  { color: var(--cream-dim); }
   .score-display { font-family: 'Bebas Neue', sans-serif; font-size: 132px; line-height: 0.9; letter-spacing: 2px; min-width: 130px; text-align: center; touch-action: manipulation; -webkit-user-select: none; user-select: none; }
   .score-display.goon { color: var(--pink); }
-  .score-display.opp { color: var(--cream); }
+  .score-display.opp  { color: var(--cream); }
   .score-sep { font-family: 'Bebas Neue', sans-serif; font-size: 54px; color: var(--teal-line); padding: 0 6px; line-height: 1; align-self: center; margin-top: 40px; }
   .score-btns { display: flex; gap: 12px; margin-top: 12px; width: 100%; justify-content: center; }
-  .btn-score { width: 76px; height: 76px; border-radius: 20px; border: none; font-size: 40px; font-weight: 700; cursor: pointer; transition: transform 0.1s; line-height: 1; touch-action: manipulation; -webkit-user-select: none; user-select: none; display: flex; align-items: center; justify-content: center; }
+  .btn-score { width: 76px; height: 76px; border-radius: 20px; border: none; font-size: 40px; font-weight: 700; cursor: pointer; transition: transform 0.1s; touch-action: manipulation; -webkit-user-select: none; user-select: none; display: flex; align-items: center; justify-content: center; }
   .btn-score:active { transform: scale(0.9); }
-  .btn-plus { background: var(--pink); color: #fff; }
-  .btn-plus.opp-btn { background: var(--berry); color: #fff; }
-  .btn-minus { background: var(--teal-line); color: var(--cream-dim); font-size: 34px; }
-
-  /* WIN BANNER */
-  .win-banner { display: none; background: linear-gradient(135deg, var(--berry), var(--pink)); border: none; border-radius: 12px; margin: 0 16px 12px; padding: 16px; text-align: center; box-shadow: 0 4px 16px rgba(196,78,154,0.3); }
-  .win-banner.show { display: block; }
-  .win-banner h2 { font-family: 'Fredoka', sans-serif; font-size: 28px; font-weight: 700; letter-spacing: 1px; color: #fff; }
-  .win-banner p { font-size: 11px; color: rgba(255,255,255,0.85); margin-top: 3px; }
+  .btn-plus          { background: var(--pink); color: #fff; }
+  .btn-plus.opp-btn  { background: var(--berry); color: #fff; }
+  .btn-minus         { background: var(--teal-line); color: var(--cream-dim); font-size: 34px; }
 
   /* TIMER */
   .timer-section { background: #11403E; border: 2px solid var(--pink); border-radius: 16px; margin: 14px 16px; padding: 20px 18px 22px; text-align: center; box-shadow: 0 0 20px rgba(217,139,201,0.25); }
-  .timer-section .timer-cap { font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); margin-bottom: 6px; }
+  .timer-cap { font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); margin-bottom: 6px; }
   .timer-display { font-family: 'Bebas Neue', sans-serif; font-size: 104px; letter-spacing: 5px; line-height: 0.9; margin-bottom: 12px; text-shadow: 0 2px 12px rgba(0,0,0,0.3); }
   .timer-display.stopped { color: var(--muted); }
   .timer-display.running { color: var(--win); text-shadow: 0 0 16px rgba(111,224,166,0.5); }
-  .timer-display.paused { color: var(--pink-bright); }
-  .timer-display.expired { color: var(--loss); }
+  .timer-display.paused  { color: var(--pink-bright); }
   .timer-bar-wrap { height: 5px; background: var(--teal-line); border-radius: 3px; margin-bottom: 14px; overflow: hidden; }
-  .timer-bar { height: 5px; background: var(--win); border-radius: 3px; transition: width 1s linear, background 0.5s; width: 100%; }
-  .timer-bar.low { background: var(--loss); }
+  .timer-bar { height: 5px; background: var(--win); border-radius: 3px; transition: width 1s linear; width: 0%; }
   .timer-controls { display: flex; justify-content: center; gap: 10px; }
   .btn-timer { padding: 12px 26px; border-radius: 10px; border: none; font-family: 'Fredoka', sans-serif; font-size: 13px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; cursor: pointer; }
   .btn-timer:active { opacity: 0.7; }
@@ -86,69 +77,57 @@
   .game-block::before { content: ''; position: absolute; left: 12px; top: 44px; bottom: -12px; width: 2px; background: var(--teal-line); }
   .game-block:last-child::before { display: none; }
   .game-node { position: absolute; left: 4px; top: 16px; width: 18px; height: 18px; border-radius: 50%; border: 2px solid var(--teal-line); background: var(--teal-deep); z-index: 1; }
-  .game-node.active { background: var(--pink); border-color: var(--pink); box-shadow: 0 0 8px rgba(196,78,154,0.6); }
-  .game-node.done { background: var(--win); border-color: var(--win); }
-  .game-node.lost { background: var(--loss); border-color: var(--loss); }
+  .game-node.active { background: var(--pink); border-color: var(--pink); box-shadow: 0 0 8px rgba(217,139,201,0.6); }
+  .game-node.done   { background: var(--win);  border-color: var(--win); }
+  .game-node.lost   { background: var(--loss); border-color: var(--loss); }
   .card { background: var(--teal-card); border: 1px solid var(--teal-line); border-radius: 12px; margin-bottom: 12px; overflow: hidden; }
   .card.active-card { border-color: var(--pink); }
   .card-top { display: flex; align-items: center; gap: 8px; padding: 10px 14px; border-bottom: 1px solid var(--teal-line); }
-  .game-lbl { font-family: 'Fredoka', sans-serif; font-size: 15px; font-weight: 600; letter-spacing: 0.5px; color: var(--cream-dim); flex: 1; }
+  .game-lbl { font-family: 'Fredoka', sans-serif; font-size: 15px; font-weight: 600; color: var(--cream-dim); flex: 1; }
   .time-lbl { font-size: 11px; font-weight: 600; color: var(--muted); }
   .bracket-tag { font-size: 10px; font-weight: 700; letter-spacing: 1px; padding: 2px 8px; border-radius: 5px; text-transform: uppercase; }
-  .tag-w { background: rgba(70,201,138,0.15); color: var(--win); }
-  .tag-l { background: rgba(224,96,127,0.15); color: var(--loss); }
-  .tag-champ { background: rgba(196,78,154,0.18); color: var(--pink-bright); }
-  .tag-tb { background: rgba(123,66,107,0.3); color: #D98BC4; }
+  .tag-w    { background: rgba(111,224,166,0.15); color: var(--win); }
+  .tag-l    { background: rgba(245,138,161,0.15); color: var(--loss); }
+  .tag-champ{ background: rgba(217,139,201,0.18); color: var(--pink-bright); }
   .card-body { padding: 12px 14px; }
   .matchup-teams { display: flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 600; margin-bottom: 8px; }
   .t-goon { color: var(--pink-bright); }
-  .t-opp { color: var(--cream-dim); }
-  .t-vs { color: var(--muted); font-size: 10px; font-weight: 700; }
+  .t-opp  { color: var(--cream-dim); }
+  .t-vs   { color: var(--muted); font-size: 10px; font-weight: 700; }
   .card-note { font-size: 11px; color: var(--muted); line-height: 1.5; }
   .result-btns { display: flex; gap: 8px; margin-top: 10px; }
-  .btn-result { flex: 1; padding: 11px 8px; border-radius: 8px; border: 1px solid; font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; cursor: pointer; text-align: center; background: transparent; }
+  .btn-result { flex: 1; padding: 11px 8px; border-radius: 8px; border: 1px solid; font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; cursor: pointer; text-align: center; background: transparent; touch-action: manipulation; }
   .btn-result:active { opacity: 0.7; }
-  .btn-win { border-color: var(--win); color: var(--win); }
-  .btn-win:hover { background: rgba(70,201,138,0.12); }
+  .btn-win  { border-color: var(--win);  color: var(--win); }
   .btn-loss { border-color: var(--loss); color: var(--loss); }
-  .btn-loss:hover { background: rgba(224,96,127,0.12); }
   .milestone-card { border: 1px dashed var(--teal-line); border-radius: 12px; margin-bottom: 12px; padding: 16px; font-size: 11px; color: var(--muted); font-weight: 700; letter-spacing: 1px; text-transform: uppercase; text-align: center; }
   .milestone-champ { border-color: var(--pink); color: var(--pink-bright); font-size: 15px; }
-  .milestone-elim { border-color: var(--loss); color: var(--loss); }
+  .milestone-elim  { border-color: var(--loss); color: var(--loss); }
 </style>
 </head>
 <body>
 
 <header>
-    <svg class="mascot" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" aria-label="Goon Squad mascot">
+  <svg class="mascot" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" aria-label="Goon Squad mascot">
     <ellipse cx="58" cy="112" rx="26" ry="5" fill="rgba(0,0,0,0.15)"/>
-    <!-- legs (thin, bent, striding) -->
     <path d="M48 80 Q44 96 38 104" stroke="#C76FB4" stroke-width="4.5" fill="none" stroke-linecap="round"/>
     <path d="M64 82 Q70 98 74 104" stroke="#C76FB4" stroke-width="4.5" fill="none" stroke-linecap="round"/>
-    <!-- white sneakers -->
     <path d="M30 104 Q30 110 40 109 L41 103 Q35 101 30 104 Z" fill="#fff" stroke="#9B5A87" stroke-width="1"/>
     <path d="M72 104 Q72 110 83 108 L83 102 Q77 101 72 104 Z" fill="#fff" stroke="#9B5A87" stroke-width="1"/>
-    <!-- left arm waving low -->
     <path d="M38 60 Q24 60 20 50" stroke="#C76FB4" stroke-width="4.5" fill="none" stroke-linecap="round"/>
     <circle cx="18" cy="47" r="5" fill="#D98BC9"/>
-    <!-- right arm raised, ball on fingertip -->
     <path d="M80 58 Q94 50 92 36" stroke="#C76FB4" stroke-width="4.5" fill="none" stroke-linecap="round"/>
     <circle cx="92" cy="33" r="3" fill="#D98BC9"/>
-    <!-- spinning ball above finger -->
     <circle cx="93" cy="22" r="11" fill="#C76FB4"/>
     <path d="M93 11 V33 M82 22 H104 M84 14 Q93 22 84 30 M102 14 Q93 22 102 30" stroke="#7B426B" stroke-width="1.3" fill="none"/>
-    <!-- body: pink basketball -->
     <circle cx="58" cy="56" r="28" fill="#D27EBE"/>
     <path d="M58 28 V84 M30 56 H86 M37 36 Q58 56 37 76 M79 36 Q58 56 79 76" stroke="#7B426B" stroke-width="2" fill="none"/>
-    <!-- face -->
     <ellipse cx="50" cy="50" rx="4.4" ry="5.4" fill="#fff"/>
     <ellipse cx="66" cy="50" rx="4.4" ry="5.4" fill="#fff"/>
     <circle cx="50.5" cy="51" r="2.4" fill="#3A1230"/>
     <circle cx="66.5" cy="51" r="2.4" fill="#3A1230"/>
-    <!-- rosy cheeks -->
     <ellipse cx="44" cy="60" rx="3.5" ry="2.4" fill="#E89FD6" opacity="0.7"/>
     <ellipse cx="72" cy="60" rx="3.5" ry="2.4" fill="#E89FD6" opacity="0.7"/>
-    <!-- open smile -->
     <path d="M48 64 Q58 76 70 64 Q58 70 48 64 Z" fill="#3A1230"/>
     <path d="M50 66 Q58 71 68 66" stroke="#fff" stroke-width="1.6" fill="none"/>
   </svg>
@@ -159,38 +138,35 @@
   </div>
 </header>
 
+<!-- SCOREBOARD -->
 <div class="scoreboard">
   <div class="sb-title">Live Scoreboard</div>
-  <div class="sb-game-label" id="sb-label">Game 9 &bull; Sat 12:30 PM &bull; Winners R1</div>
+  <div class="sb-game-label" id="sb-label">Game 19 &bull; Sun 8:00 AM &bull; Losers Bracket</div>
   <div class="score-row">
     <div class="score-team">
       <div class="score-team-name goon">Goon Squad</div>
       <div class="score-display goon" id="score-goon">0</div>
       <div class="score-btns">
-        <button class="btn-score btn-plus" onclick="changeScore('goon',1)">+</button>
-        <button class="btn-score btn-minus" onclick="changeScore('goon',-1)">-</button>
+        <button class="btn-score btn-plus"     onclick="changeScore('goon', 1)">+</button>
+        <button class="btn-score btn-minus"    onclick="changeScore('goon',-1)">-</button>
       </div>
     </div>
     <div class="score-sep">:</div>
     <div class="score-team">
-      <div class="score-team-name opp" id="opp-name">KCNG</div>
+      <div class="score-team-name opp" id="opp-name">L14</div>
       <div class="score-display opp" id="score-opp">0</div>
       <div class="score-btns">
-        <button class="btn-score btn-plus opp-btn" onclick="changeScore('opp',1)">+</button>
-        <button class="btn-score btn-minus" onclick="changeScore('opp',-1)">-</button>
+        <button class="btn-score btn-plus opp-btn" onclick="changeScore('opp', 1)">+</button>
+        <button class="btn-score btn-minus"        onclick="changeScore('opp',-1)">-</button>
       </div>
     </div>
   </div>
 </div>
 
-<div class="win-banner" id="win-banner">
-  <h2 id="win-text">GOON SQUAD WINS!</h2>
-  <p id="win-sub">First to 20. Mark the result below.</p>
-</div>
-
+<!-- TIMER -->
 <div class="timer-section">
-  <div class="timer-cap">Game Clock &bull; 20:00 or first to 20</div>
-  <div class="timer-display stopped" id="timer-display">20:00</div>
+  <div class="timer-cap">Game Clock</div>
+  <div class="timer-display stopped" id="timer-display">00:00</div>
   <div class="timer-bar-wrap"><div class="timer-bar" id="timer-bar"></div></div>
   <div class="timer-controls">
     <button class="btn-timer btn-start" id="btn-start" onclick="startTimer()">Start</button>
@@ -199,322 +175,227 @@
   </div>
 </div>
 
+<!-- PATH -->
 <div class="path">
-  <div class="section-label">Goon Squad Path</div>
+  <div class="section-label">Sunday Path &bull; Losers Bracket</div>
 
-  <!-- GAME 9: Winners R1, Sat 12:30 PM, Goon Squad vs KCNG -->
-  <div class="game-block" id="block-g9">
-    <div class="game-node active" id="node-g9"></div>
-    <div class="card active-card" id="card-g9">
-      <div class="card-top"><div class="game-lbl">Game 9</div><div class="time-lbl">Sat 12:30 PM</div><span class="bracket-tag tag-w">Winners R1</span></div>
-      <div class="card-body">
-        <div class="matchup-teams"><span class="t-goon">Goon Squad</span><span class="t-vs">VS</span><span class="t-opp">KCNG</span></div>
-        <div class="card-note">Win goes to Game 14 (Sat 3:30 PM). Loss drops to Losers bracket as L9, Game 18 (Sat 5:30 PM).</div>
-        <div class="result-btns">
-          <button class="btn-result btn-win" onclick="recordResult('g9','win')">Win</button>
-          <button class="btn-result btn-loss" onclick="recordResult('g9','loss')">Loss</button>
-        </div>
+  <!-- GAME 19: Sun 8:00 AM. Winner of G18 vs L14. Winner to G25. Loss = eliminated. -->
+  <div class="game-block" id="block-g19">
+    <div class="game-node active" id="node-g19"></div>
+    <div class="card active-card" id="card-g19">
+      <div class="card-top">
+        <div class="game-lbl">Game 19</div>
+        <div class="time-lbl">Sun 8:00 AM</div>
+        <span class="bracket-tag tag-l">Losers</span>
       </div>
-    </div>
-  </div>
-
-  <!-- WINNERS: GAME 14, Sat 3:30 PM -->
-  <div class="game-block" id="block-g14" style="display:none">
-    <div class="game-node" id="node-g14"></div>
-    <div class="card" id="card-g14">
-      <div class="card-top"><div class="game-lbl">Game 14</div><div class="time-lbl">Sat 3:30 PM</div><span class="bracket-tag tag-w">Winners R2</span></div>
-      <div class="card-body">
-        <div class="matchup-teams"><span class="t-goon">Goon Squad</span><span class="t-vs">VS</span><span class="t-opp">Winner of Game 8</span></div>
-        <div class="card-note">Win goes to Game 24 (Sun 10:30 AM). Loss drops to Losers bracket as L14.</div>
-        <div class="result-btns">
-          <button class="btn-result btn-win" onclick="recordResult('g14','win')">Win</button>
-          <button class="btn-result btn-loss" onclick="recordResult('g14','loss')">Loss</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- WINNERS: GAME 24, Sun 10:30 AM -->
-  <div class="game-block" id="block-g24" style="display:none">
-    <div class="game-node" id="node-g24"></div>
-    <div class="card" id="card-g24">
-      <div class="card-top"><div class="game-lbl">Game 24</div><div class="time-lbl">Sun 10:30 AM</div><span class="bracket-tag tag-w">Winners QF</span></div>
-      <div class="card-body">
-        <div class="matchup-teams"><span class="t-goon">Goon Squad</span><span class="t-vs">VS</span><span class="t-opp">Winner of Game 13</span></div>
-        <div class="card-note">Win goes to Game 27 Winners SF (Sun 1:30 PM). Loss drops to Losers bracket.</div>
-        <div class="result-btns">
-          <button class="btn-result btn-win" onclick="recordResult('g24','win')">Win</button>
-          <button class="btn-result btn-loss" onclick="recordResult('g24','loss')">Loss</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- WINNERS: GAME 27, Sun 1:30 PM -->
-  <div class="game-block" id="block-g27" style="display:none">
-    <div class="game-node" id="node-g27"></div>
-    <div class="card" id="card-g27">
-      <div class="card-top"><div class="game-lbl">Game 27</div><div class="time-lbl">Sun 1:30 PM</div><span class="bracket-tag tag-w">Winners SF</span></div>
-      <div class="card-body">
-        <div class="matchup-teams"><span class="t-goon">Goon Squad</span><span class="t-vs">VS</span><span class="t-opp">Winner of Game 23</span></div>
-        <div class="card-note">Win goes directly to Final 32 (Sun 5:30 PM). Loss drops to Semi 31 (Sun 4:30 PM) as L27.</div>
-        <div class="result-btns">
-          <button class="btn-result btn-win" onclick="recordResult('g27','win')">Win</button>
-          <button class="btn-result btn-loss" onclick="recordResult('g27','loss')">Loss</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- LOSERS: GAME 18, Sat 5:30 PM (L9) -->
-  <div class="game-block" id="block-g18" style="display:none">
-    <div class="game-node" id="node-g18"></div>
-    <div class="card" id="card-g18">
-      <div class="card-top"><div class="game-lbl">Game 18</div><div class="time-lbl">Sat 5:30 PM</div><span class="bracket-tag tag-l">Losers R2</span></div>
-      <div class="card-body">
-        <div class="matchup-teams"><span class="t-goon">Goon Squad (L9)</span><span class="t-vs">VS</span><span class="t-opp">Winner of Game 10</span></div>
-        <div class="card-note">Win advances to Game 19 (Sun 8:00 AM). Loss drops to the Toilet Bowl (TB1, Sun 11:00 AM), still alive.</div>
-        <div class="result-btns">
-          <button class="btn-result btn-win" onclick="recordResult('g18','win')">Win</button>
-          <button class="btn-result btn-loss" onclick="recordResult('g18','loss')">Loss (to Toilet Bowl)</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- TOILET BOWL: TB1, Sun 11:00 AM -->
-  <div class="game-block" id="block-tb1" style="display:none">
-    <div class="game-node" id="node-tb1"></div>
-    <div class="card" id="card-tb1">
-      <div class="card-top"><div class="game-lbl">TB1</div><div class="time-lbl">Sun 11:00 AM</div><span class="bracket-tag tag-tb">Toilet Bowl</span></div>
-      <div class="card-body">
-        <div class="matchup-teams"><span class="t-goon">Goon Squad</span><span class="t-vs">VS</span><span class="t-opp">L17 (not W1)</span></div>
-        <div class="card-note">Toilet Bowl first round. Win advances to TB3 (Sun 12:00 PM). Loss is eliminated.</div>
-        <div class="result-btns">
-          <button class="btn-result btn-win" onclick="recordResult('tb1','win')">Win</button>
-          <button class="btn-result btn-loss" onclick="recordResult('tb1','loss')">Loss (Eliminated)</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- TOILET BOWL: TB3, Sun 12:00 PM -->
-  <div class="game-block" id="block-tb3" style="display:none">
-    <div class="game-node" id="node-tb3"></div>
-    <div class="card" id="card-tb3">
-      <div class="card-top"><div class="game-lbl">TB3</div><div class="time-lbl">Sun 12:00 PM</div><span class="bracket-tag tag-tb">Toilet Bowl</span></div>
-      <div class="card-body">
-        <div class="matchup-teams"><span class="t-goon">Goon Squad</span><span class="t-vs">VS</span><span class="t-opp">L15</span></div>
-        <div class="card-note">Win advances to the Toilet Bowl final (TB4, Sun 3:00 PM). Loss is eliminated.</div>
-        <div class="result-btns">
-          <button class="btn-result btn-win" onclick="recordResult('tb3','win')">Win</button>
-          <button class="btn-result btn-loss" onclick="recordResult('tb3','loss')">Loss (Eliminated)</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- TOILET BOWL: TB4 Final, Sun 3:00 PM -->
-  <div class="game-block" id="block-tb4" style="display:none">
-    <div class="game-node" id="node-tb4"></div>
-    <div class="card" id="card-tb4" style="border-color:#C0A000">
-      <div class="card-top"><div class="game-lbl">TB4</div><div class="time-lbl">Sun 3:00 PM</div><span class="bracket-tag tag-tb">Toilet Bowl Final</span></div>
-      <div class="card-body">
-        <div class="matchup-teams"><span class="t-goon">Goon Squad</span><span class="t-vs">VS</span><span class="t-opp">TB2 winner (L10/L16)</span></div>
-        <div class="card-note">Toilet Bowl championship. Win it all on this side of the bracket.</div>
-        <div class="result-btns">
-          <button class="btn-result btn-win" onclick="recordResult('tb4','win')">Win (Toilet Bowl Champ)</button>
-          <button class="btn-result btn-loss" onclick="recordResult('tb4','loss')">Loss</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- LOSERS: GAME 19, Sun 8:00 AM -->
-  <div class="game-block" id="block-g19" style="display:none">
-    <div class="game-node" id="node-g19"></div>
-    <div class="card" id="card-g19">
-      <div class="card-top"><div class="game-lbl">Game 19</div><div class="time-lbl">Sun 8:00 AM</div><span class="bracket-tag tag-l">Losers R3</span></div>
       <div class="card-body">
         <div class="matchup-teams"><span class="t-goon">Goon Squad</span><span class="t-vs">VS</span><span class="t-opp">L14</span></div>
         <div class="card-note">Win advances to Game 25 (Sun 12:30 PM). Loss is eliminated.</div>
         <div class="result-btns">
-          <button class="btn-result btn-win" onclick="recordResult('g19','win')">Win</button>
+          <button class="btn-result btn-win"  onclick="recordResult('g19','win')">Win</button>
           <button class="btn-result btn-loss" onclick="recordResult('g19','loss')">Loss (Eliminated)</button>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- LOSERS: GAME 25, Sun 12:30 PM -->
+  <!-- GAME 25: Sun 12:30 PM. Winner of G19 vs Winner of G20. Winner to G28. -->
   <div class="game-block" id="block-g25" style="display:none">
     <div class="game-node" id="node-g25"></div>
     <div class="card" id="card-g25">
-      <div class="card-top"><div class="game-lbl">Game 25</div><div class="time-lbl">Sun 12:30 PM</div><span class="bracket-tag tag-l">Losers R4</span></div>
+      <div class="card-top">
+        <div class="game-lbl">Game 25</div>
+        <div class="time-lbl">Sun 12:30 PM</div>
+        <span class="bracket-tag tag-l">Losers</span>
+      </div>
       <div class="card-body">
-        <div class="matchup-teams"><span class="t-goon">Goon Squad</span><span class="t-vs">VS</span><span class="t-opp">Game 20 winner</span></div>
+        <div class="matchup-teams"><span class="t-goon">Goon Squad</span><span class="t-vs">VS</span><span class="t-opp">Winner of Game 20</span></div>
         <div class="card-note">Win advances to Game 28 (Sun 2:00 PM). Loss is eliminated.</div>
         <div class="result-btns">
-          <button class="btn-result btn-win" onclick="recordResult('g25','win')">Win</button>
+          <button class="btn-result btn-win"  onclick="recordResult('g25','win')">Win</button>
           <button class="btn-result btn-loss" onclick="recordResult('g25','loss')">Loss (Eliminated)</button>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- LOSERS: GAME 28, Sun 2:00 PM -->
+  <!-- GAME 28: Sun 2:00 PM. Winner of G25 vs L23. Winner to G30. -->
   <div class="game-block" id="block-g28" style="display:none">
     <div class="game-node" id="node-g28"></div>
     <div class="card" id="card-g28">
-      <div class="card-top"><div class="game-lbl">Game 28</div><div class="time-lbl">Sun 2:00 PM</div><span class="bracket-tag tag-l">Losers R5</span></div>
+      <div class="card-top">
+        <div class="game-lbl">Game 28</div>
+        <div class="time-lbl">Sun 2:00 PM</div>
+        <span class="bracket-tag tag-l">Losers</span>
+      </div>
       <div class="card-body">
         <div class="matchup-teams"><span class="t-goon">Goon Squad</span><span class="t-vs">VS</span><span class="t-opp">L23</span></div>
         <div class="card-note">Win advances to Game 30 (Sun 3:30 PM). Loss is eliminated.</div>
         <div class="result-btns">
-          <button class="btn-result btn-win" onclick="recordResult('g28','win')">Win</button>
+          <button class="btn-result btn-win"  onclick="recordResult('g28','win')">Win</button>
           <button class="btn-result btn-loss" onclick="recordResult('g28','loss')">Loss (Eliminated)</button>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- LOSERS: GAME 30, Sun 3:30 PM -->
+  <!-- GAME 30: Sun 3:30 PM. Winner of G28 vs Winner of G29 (L24). Winner to Semi 31. -->
   <div class="game-block" id="block-g30" style="display:none">
     <div class="game-node" id="node-g30"></div>
     <div class="card" id="card-g30">
-      <div class="card-top"><div class="game-lbl">Game 30</div><div class="time-lbl">Sun 3:30 PM</div><span class="bracket-tag tag-l">Losers SF</span></div>
+      <div class="card-top">
+        <div class="game-lbl">Game 30</div>
+        <div class="time-lbl">Sun 3:30 PM</div>
+        <span class="bracket-tag tag-l">Losers SF</span>
+      </div>
       <div class="card-body">
-        <div class="matchup-teams"><span class="t-goon">Goon Squad</span><span class="t-vs">VS</span><span class="t-opp">L24 side winner</span></div>
+        <div class="matchup-teams"><span class="t-goon">Goon Squad</span><span class="t-vs">VS</span><span class="t-opp">Winner of Game 29</span></div>
         <div class="card-note">Win advances to Semi 31 (Sun 4:30 PM). Loss is eliminated.</div>
         <div class="result-btns">
-          <button class="btn-result btn-win" onclick="recordResult('g30','win')">Win</button>
+          <button class="btn-result btn-win"  onclick="recordResult('g30','win')">Win</button>
           <button class="btn-result btn-loss" onclick="recordResult('g30','loss')">Loss (Eliminated)</button>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- SEMI 31 -->
+  <!-- SEMI 31: Sun 4:30 PM. Winner of G30 vs L27. Winner to Final 32. -->
   <div class="game-block" id="block-semi31" style="display:none">
     <div class="game-node" id="node-semi31"></div>
     <div class="card" id="card-semi31">
-      <div class="card-top"><div class="game-lbl">Semi 31</div><div class="time-lbl">Sun 4:30 PM</div><span class="bracket-tag tag-champ">Semifinal</span></div>
+      <div class="card-top">
+        <div class="game-lbl">Semi 31</div>
+        <div class="time-lbl">Sun 4:30 PM</div>
+        <span class="bracket-tag tag-champ">Semifinal</span>
+      </div>
       <div class="card-body">
-        <div class="matchup-teams"><span class="t-goon">Goon Squad</span><span class="t-vs">VS</span><span class="t-opp">L27</span></div>
-        <div class="card-note">Win puts you in the championship Final 32 (Sun 5:30 PM). Loss is eliminated.</div>
+        <div class="matchup-teams"><span class="t-goon">Goon Squad</span><span class="t-vs">VS</span><span class="t-opp">L27 (loser of Winners SF)</span></div>
+        <div class="card-note">Win puts Goon Squad in the championship. Loss is eliminated.</div>
         <div class="result-btns">
-          <button class="btn-result btn-win" onclick="recordResult('semi31','win')">Win</button>
+          <button class="btn-result btn-win"  onclick="recordResult('semi31','win')">Win</button>
           <button class="btn-result btn-loss" onclick="recordResult('semi31','loss')">Loss (Eliminated)</button>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- FINAL 32 -->
+  <!-- FINAL 32: Sun 5:30 PM. -->
   <div class="game-block" id="block-final" style="display:none">
     <div class="game-node" id="node-final"></div>
-    <div class="card" id="card-final" style="border-color:#FFB800">
-      <div class="card-top" style="border-color:#2A2000"><div class="game-lbl" style="color:#FFB800;font-size:16px">Final 32</div><div class="time-lbl" style="color:#FFB800">Sun 5:30 PM</div><span class="bracket-tag tag-champ">Championship</span></div>
+    <div class="card" id="card-final" style="border-color:var(--pink)">
+      <div class="card-top" style="border-color:var(--berry)">
+        <div class="game-lbl" style="color:var(--pink-bright);font-size:17px">Final 32</div>
+        <div class="time-lbl" style="color:var(--pink-bright)">Sun 5:30 PM</div>
+        <span class="bracket-tag tag-champ">Championship</span>
+      </div>
       <div class="card-body">
         <div class="matchup-teams"><span class="t-goon">Goon Squad</span><span class="t-vs">VS</span><span class="t-opp">Winners bracket champion</span></div>
-        <div class="card-note">The whole thing. Gus Macker Red R Court championship. Contingent Game 33 (Sun 6:00 PM) if necessary.</div>
+        <div class="card-note">Red R Court championship. Contingent Game 33 (Sun 6:00 PM) if necessary.</div>
         <div class="result-btns">
-          <button class="btn-result btn-win" onclick="recordResult('final','win')">Win (Champions)</button>
+          <button class="btn-result btn-win"  onclick="recordResult('final','win')">Win (Champions)</button>
           <button class="btn-result btn-loss" onclick="recordResult('final','loss')">Loss (2nd Place)</button>
         </div>
       </div>
     </div>
   </div>
 
-  <div id="block-elim" style="display:none"><div class="milestone-card milestone-elim">Tournament over. Good run, Goon Squad.</div></div>
-  <div id="block-champs" style="display:none"><div class="milestone-card milestone-champ">Goon Squad &bull; Red R Champions</div></div>
-  <div id="block-tbchamp" style="display:none"><div class="milestone-card" style="border-color:#C0A000;color:#C0A000;font-size:15px;">Goon Squad &bull; Toilet Bowl Champions</div></div>
-  <div id="block-runner" style="display:none"><div class="milestone-card" style="border-color:#aaa;color:#aaa;">Runner-up. Heck of a run, Goon Squad.</div></div>
+  <div id="block-elim"   style="display:none"><div class="milestone-card milestone-elim">Tournament over. Good run, Goon Squad.</div></div>
+  <div id="block-champs" style="display:none"><div class="milestone-card milestone-champ">Goon Squad &bull; Red R Court Champions</div></div>
+  <div id="block-runner" style="display:none"><div class="milestone-card" style="border-color:var(--muted);color:var(--muted);">Runner-up. Heck of a tournament, Goon Squad.</div></div>
 </div>
 
 <script>
-const TOTAL = 20 * 60;
-  let secondsLeft = TOTAL, interval = null, running = false;
+  let elapsed = 0;
+  let interval = null, running = false;
   let scores = { goon: 0, opp: 0 };
 
   const meta = {
-    g9:     { label: 'Game 9 \u2022 Sat 12:30 PM \u2022 Winners R1', opp: 'KCNG' },
-    g14:    { label: 'Game 14 \u2022 Sat 3:30 PM \u2022 Winners R2', opp: 'Winner of Game 8' },
-    g24:    { label: 'Game 24 \u2022 Sun 10:30 AM \u2022 Winners QF', opp: 'Winner of Game 13' },
-    g27:    { label: 'Game 27 \u2022 Sun 1:30 PM \u2022 Winners SF', opp: 'Winner of Game 23' },
-    g18:    { label: 'Game 18 \u2022 Sat 5:30 PM \u2022 Losers R2', opp: 'Winner of Game 10' },
-    g19:    { label: 'Game 19 \u2022 Sun 8:00 AM \u2022 Losers R3', opp: 'L14' },
-    g25:    { label: 'Game 25 \u2022 Sun 12:30 PM \u2022 Losers R4', opp: 'Game 20 winner' },
-    g28:    { label: 'Game 28 \u2022 Sun 2:00 PM \u2022 Losers R5', opp: 'L23' },
-    g30:    { label: 'Game 30 \u2022 Sun 3:30 PM \u2022 Losers SF', opp: 'L24 side' },
-    tb1:    { label: 'TB1 \u2022 Sun 11:00 AM \u2022 Toilet Bowl', opp: 'L17 (not W1)' },
-    tb3:    { label: 'TB3 \u2022 Sun 12:00 PM \u2022 Toilet Bowl', opp: 'L15' },
-    tb4:    { label: 'TB4 \u2022 Sun 3:00 PM \u2022 Toilet Bowl Final', opp: 'TB2 winner' },
-    semi31: { label: 'Semi 31 \u2022 Sun 4:30 PM \u2022 Semifinal', opp: 'L27' },
-    final:  { label: 'Final 32 \u2022 Sun 5:30 PM \u2022 Championship', opp: 'Winners champion' }
+    g19:    { label: 'Game 19 \u2022 Sun 8:00 AM \u2022 Losers Bracket',   opp: 'L14' },
+    g25:    { label: 'Game 25 \u2022 Sun 12:30 PM \u2022 Losers Bracket',  opp: 'Winner of Game 20' },
+    g28:    { label: 'Game 28 \u2022 Sun 2:00 PM \u2022 Losers Bracket',   opp: 'L23' },
+    g30:    { label: 'Game 30 \u2022 Sun 3:30 PM \u2022 Losers SF',        opp: 'Winner of Game 29' },
+    semi31: { label: 'Semi 31 \u2022 Sun 4:30 PM \u2022 Semifinal',        opp: 'L27' },
+    final:  { label: 'Final 32 \u2022 Sun 5:30 PM \u2022 Championship',    opp: 'Winners champion' }
   };
 
   const paths = {
-    g9:     { win: ['g14'],    loss: ['g18'] },
-    g14:    { win: ['g24'],    loss: ['g19'] },
-    g24:    { win: ['g27'],    loss: ['g28'] },
-    g27:    { win: ['final'],  loss: ['semi31'] },
-    g18:    { win: ['g19'],    loss: ['tb1'] },
-    tb1:    { win: ['tb3'],    loss: null },
-    tb3:    { win: ['tb4'],    loss: null },
-    tb4:    { win: 'tbchamp', loss: 'elim' },
-    g19:    { win: ['g25'],    loss: null },
-    g25:    { win: ['g28'],    loss: null },
-    g28:    { win: ['g30'],    loss: null },
-    g30:    { win: ['semi31'], loss: null },
-    semi31: { win: ['final'],  loss: null },
-    final:  { win: 'champs',  loss: 'runner' }
+    g19:    { win: 'g25',    loss: null },
+    g25:    { win: 'g28',    loss: null },
+    g28:    { win: 'g30',    loss: null },
+    g30:    { win: 'semi31', loss: null },
+    semi31: { win: 'final',  loss: null },
+    final:  { win: 'champs', loss: 'runner' }
   };
 
-  function changeScore(t, d) { scores[t] = Math.max(0, scores[t] + d); document.getElementById('score-' + t).textContent = scores[t]; checkWin(); }
-  function checkWin() {
-    const b = document.getElementById('win-banner');
-    if (scores.goon >= 20) { document.getElementById('win-text').textContent = 'GOON SQUAD WINS!'; document.getElementById('win-sub').textContent = 'First to 20. Mark the result below.'; b.classList.add('show'); }
-    else if (scores.opp >= 20) { document.getElementById('win-text').textContent = 'GAME OVER'; document.getElementById('win-sub').textContent = 'Opponent reached 20. Mark the result below.'; b.classList.add('show'); }
-    else b.classList.remove('show');
+  function changeScore(team, delta) {
+    scores[team] = Math.max(0, scores[team] + delta);
+    document.getElementById('score-' + team).textContent = scores[team];
   }
+
   function updateDisplay() {
-    const m = Math.floor(secondsLeft / 60), s = secondsLeft % 60;
+    const m = Math.floor(elapsed / 60), s = elapsed % 60;
     document.getElementById('timer-display').textContent = String(m).padStart(2,'0') + ':' + String(s).padStart(2,'0');
-    const bar = document.getElementById('timer-bar'); bar.style.width = (secondsLeft / TOTAL) * 100 + '%';
+    const bar = document.getElementById('timer-bar');
+    bar.style.width = Math.min((elapsed / (30 * 60)) * 100, 100) + '%';
     const d = document.getElementById('timer-display');
-    if (!running && secondsLeft === TOTAL) { d.className = 'timer-display stopped'; bar.className = 'timer-bar'; }
-    else if (secondsLeft <= 0) { d.className = 'timer-display expired'; bar.className = 'timer-bar low'; bar.style.width = '0%'; }
-    else if (secondsLeft <= 120) { d.className = 'timer-display ' + (running ? 'running' : 'paused'); bar.className = 'timer-bar low'; }
-    else { d.className = 'timer-display ' + (running ? 'running' : 'paused'); bar.className = 'timer-bar'; }
+    d.className = 'timer-display ' + (!running && elapsed === 0 ? 'stopped' : running ? 'running' : 'paused');
   }
+
   function startTimer() {
-    if (running || secondsLeft <= 0) return; running = true;
-    document.getElementById('btn-start').style.display = 'none'; document.getElementById('btn-pause').style.display = '';
-    interval = setInterval(() => { if (secondsLeft > 0) { secondsLeft--; updateDisplay(); } else { clearInterval(interval); running = false; document.getElementById('btn-start').style.display = ''; document.getElementById('btn-pause').style.display = 'none'; updateDisplay(); } }, 1000);
+    if (running) return;
+    running = true;
+    document.getElementById('btn-start').style.display = 'none';
+    document.getElementById('btn-pause').style.display = '';
+    interval = setInterval(() => { elapsed++; updateDisplay(); }, 1000);
   }
-  function pauseTimer() { if (!running) return; clearInterval(interval); running = false; document.getElementById('btn-start').style.display = ''; document.getElementById('btn-pause').style.display = 'none'; updateDisplay(); }
-  function resetTimer() { clearInterval(interval); running = false; secondsLeft = TOTAL; document.getElementById('btn-start').style.display = ''; document.getElementById('btn-pause').style.display = 'none'; updateDisplay(); }
+
+  function pauseTimer() {
+    if (!running) return;
+    clearInterval(interval); running = false;
+    document.getElementById('btn-start').style.display = '';
+    document.getElementById('btn-pause').style.display = 'none';
+    updateDisplay();
+  }
+
+  function resetTimer() {
+    clearInterval(interval); running = false; elapsed = 0;
+    document.getElementById('btn-start').style.display = '';
+    document.getElementById('btn-pause').style.display = 'none';
+    updateDisplay();
+  }
 
   function recordResult(gameId, result) {
-    const node = document.getElementById('node-' + gameId), card = document.getElementById('card-' + gameId);
+    const node = document.getElementById('node-' + gameId);
+    const card = document.getElementById('card-' + gameId);
     if (node) node.className = 'game-node ' + (result === 'win' ? 'done' : 'lost');
-    if (card) { card.classList.remove('active-card'); card.style.borderColor = result === 'win' ? '#2ECC71' : '#E74C3C'; }
+    if (card) { card.classList.remove('active-card'); card.style.borderColor = result === 'win' ? 'var(--win)' : 'var(--loss)'; }
+
     scores = { goon: 0, opp: 0 };
-    document.getElementById('score-goon').textContent = '0'; document.getElementById('score-opp').textContent = '0';
-    document.getElementById('win-banner').classList.remove('show'); resetTimer();
-    if (gameId === 'tb4') { document.getElementById('block-' + (result === 'win' ? 'tbchamp' : 'elim')).style.display = 'block'; return; }
-    if (gameId === 'final') { document.getElementById('block-' + (result === 'win' ? 'champs' : 'runner')).style.display = 'block'; return; }
+    document.getElementById('score-goon').textContent = '0';
+    document.getElementById('score-opp').textContent  = '0';
+    resetTimer();
+
     const next = paths[gameId][result];
-    if (!next) { document.getElementById('block-elim').style.display = 'block'; return; }
-    next.forEach(id => {
-      const bl = document.getElementById('block-' + id); if (bl) bl.style.display = 'block';
-      const nd = document.getElementById('node-' + id); if (nd) nd.className = 'game-node active';
-      const cd = document.getElementById('card-' + id); if (cd) cd.classList.add('active-card');
-    });
-    const f = next[0];
-    if (meta[f]) { document.getElementById('sb-label').textContent = meta[f].label; document.getElementById('opp-name').textContent = meta[f].opp; }
+
+    if (next === 'champs' || next === 'runner' || next === null) {
+      const id = next === 'champs' ? 'champs' : next === 'runner' ? 'runner' : 'elim';
+      document.getElementById('block-' + id).style.display = 'block';
+      return;
+    }
+
+    const bl = document.getElementById('block-' + next);
+    const nd = document.getElementById('node-'  + next);
+    const cd = document.getElementById('card-'  + next);
+    if (bl) bl.style.display = 'block';
+    if (nd) nd.className = 'game-node active';
+    if (cd) cd.classList.add('active-card');
+
+    if (meta[next]) {
+      document.getElementById('sb-label').textContent  = meta[next].label;
+      document.getElementById('opp-name').textContent  = meta[next].opp;
+    }
   }
+
   updateDisplay();
 </script>
 </body>
