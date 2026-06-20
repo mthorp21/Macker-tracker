@@ -5,93 +5,158 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title>Goon Squad | Gus Macker Red R</title>
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Fredoka:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap');
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  body { background: #0F0F0F; color: #F0F0F0; font-family: 'Inter', sans-serif; min-height: 100vh; padding-bottom: 60px; touch-action: manipulation; }
-  header { background: #1A1A1A; border-bottom: 3px solid #FFB800; padding: 20px 20px 16px; text-align: center; }
-  .eyebrow { font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #666; margin-bottom: 4px; }
-  h1 { font-family: 'Bebas Neue', sans-serif; font-size: 48px; letter-spacing: 3px; color: #FFB800; line-height: 1; }
-  .captain { margin-top: 4px; font-size: 11px; color: #555; letter-spacing: 1px; text-transform: uppercase; }
-  .scoreboard { background: #111; border-bottom: 1px solid #1E1E1E; padding: 20px 16px 16px; }
-  .sb-title { font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #555; text-align: center; margin-bottom: 6px; }
-  .sb-game-label { font-family: 'Bebas Neue', sans-serif; font-size: 13px; letter-spacing: 1px; color: #555; text-align: center; margin-bottom: 14px; }
+
+    :root {
+    --teal-deep: #1E6B68;
+    --teal-mid: #3A9893;
+    --teal-shirt: #3A9893;
+    --teal-line: #2E827D;
+    --teal-card: #2B807B;
+    --berry: #9B5A87;
+    --berry-deep: #7B426B;
+    --pink: #D98BC9;
+    --pink-bright: #E89FD6;
+    --cream: #FFFFFF;
+    --cream-dim: #E6F0ED;
+    --muted: #A9CCC7;
+    --win: #6FE0A6;
+    --loss: #F58AA1;
+  }
+
+  body { background: var(--teal-deep); color: var(--cream); font-family: 'Inter', sans-serif; min-height: 100vh; padding-bottom: 60px; touch-action: manipulation; -webkit-text-size-adjust: 100%; }
+
+  /* HEADER with mascot */
+  header { background: var(--teal-shirt); border-bottom: 4px solid var(--pink); padding: 18px 20px 18px; display: flex; align-items: center; gap: 16px; justify-content: center; }
+  .mascot { width: 110px; height: 110px; flex-shrink: 0; filter: drop-shadow(0 3px 6px rgba(0,0,0,0.22)); }
+  .header-text { text-align: left; }
+  .eyebrow { font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,246,238,0.7); margin-bottom: 2px; }
+  h1 { font-family: 'Fredoka', sans-serif; font-size: 46px; font-weight: 700; letter-spacing: 1px; color: var(--cream); line-height: 0.95; text-shadow: 2px 2px 0 var(--berry-deep); }
+  .captain { margin-top: 3px; font-size: 11px; color: rgba(255,246,238,0.75); letter-spacing: 1px; text-transform: uppercase; }
+
+  /* SCOREBOARD */
+  .scoreboard { background: var(--teal-card); border-bottom: 1px solid var(--teal-line); padding: 22px 16px 18px; }
+  .sb-title { font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); text-align: center; margin-bottom: 6px; }
+  .sb-game-label { font-family: 'Fredoka', sans-serif; font-size: 14px; font-weight: 600; letter-spacing: 0.5px; color: var(--pink-bright); text-align: center; margin-bottom: 16px; }
   .score-row { display: flex; align-items: center; justify-content: center; margin-bottom: 14px; }
   .score-team { display: flex; flex-direction: column; align-items: center; flex: 1; max-width: 200px; }
-  .score-team-name { font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; text-align: center; margin-bottom: 6px; line-height: 1.2; }
-  .score-team-name.goon { color: #FFB800; }
-  .score-team-name.opp { color: #aaa; }
-  .score-display { font-family: 'Bebas Neue', sans-serif; font-size: 128px; line-height: 1; letter-spacing: 2px; min-width: 130px; text-align: center; touch-action: manipulation; -webkit-user-select: none; user-select: none; }
-  .score-display.goon { color: #FFB800; }
-  .score-display.opp { color: #F0F0F0; }
-  .score-sep { font-family: 'Bebas Neue', sans-serif; font-size: 52px; color: #2A2A2A; padding: 0 6px; line-height: 1; align-self: center; margin-top: 36px; }
-  .score-btns { display: flex; gap: 10px; margin-top: 12px; width: 100%; justify-content: center; }
-  .btn-score { width: 72px; height: 72px; border-radius: 18px; border: none; font-size: 38px; font-weight: 700; cursor: pointer; transition: transform 0.1s; line-height: 1; touch-action: manipulation; -webkit-user-select: none; user-select: none; display: flex; align-items: center; justify-content: center; }
+  .score-team-name { font-size: 12px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; text-align: center; margin-bottom: 4px; line-height: 1.2; }
+  .score-team-name.goon { color: var(--pink-bright); }
+  .score-team-name.opp { color: var(--cream-dim); }
+  .score-display { font-family: 'Bebas Neue', sans-serif; font-size: 132px; line-height: 0.9; letter-spacing: 2px; min-width: 130px; text-align: center; touch-action: manipulation; -webkit-user-select: none; user-select: none; }
+  .score-display.goon { color: var(--pink); }
+  .score-display.opp { color: var(--cream); }
+  .score-sep { font-family: 'Bebas Neue', sans-serif; font-size: 54px; color: var(--teal-line); padding: 0 6px; line-height: 1; align-self: center; margin-top: 40px; }
+  .score-btns { display: flex; gap: 12px; margin-top: 12px; width: 100%; justify-content: center; }
+  .btn-score { width: 76px; height: 76px; border-radius: 20px; border: none; font-size: 40px; font-weight: 700; cursor: pointer; transition: transform 0.1s; line-height: 1; touch-action: manipulation; -webkit-user-select: none; user-select: none; display: flex; align-items: center; justify-content: center; }
   .btn-score:active { transform: scale(0.9); }
-  .btn-plus { background: #FFB800; color: #000; }
-  .btn-plus.opp-btn { background: #333; color: #fff; }
-  .btn-minus { background: #1E1E1E; color: #888; font-size: 30px; }
-  .win-banner { display: none; background: linear-gradient(135deg, #1A1500, #111); border: 2px solid #FFB800; border-radius: 10px; margin: 0 16px 12px; padding: 14px; text-align: center; }
+  .btn-plus { background: var(--pink); color: #fff; }
+  .btn-plus.opp-btn { background: var(--berry); color: #fff; }
+  .btn-minus { background: var(--teal-line); color: var(--cream-dim); font-size: 34px; }
+
+  /* WIN BANNER */
+  .win-banner { display: none; background: linear-gradient(135deg, var(--berry), var(--pink)); border: none; border-radius: 12px; margin: 0 16px 12px; padding: 16px; text-align: center; box-shadow: 0 4px 16px rgba(196,78,154,0.3); }
   .win-banner.show { display: block; }
-  .win-banner h2 { font-family: 'Bebas Neue', sans-serif; font-size: 28px; letter-spacing: 2px; color: #FFB800; }
-  .win-banner p { font-size: 11px; color: #777; margin-top: 3px; }
-  .timer-section { background: #0F0F0F; border: 1px solid #1E1E1E; border-radius: 12px; margin: 12px 16px; padding: 16px; text-align: center; }
-  .timer-display { font-family: 'Bebas Neue', sans-serif; font-size: 64px; letter-spacing: 4px; line-height: 1; margin-bottom: 10px; }
-  .timer-display.stopped { color: #444; }
-  .timer-display.running { color: #2ECC71; }
-  .timer-display.paused { color: #FFB800; }
-  .timer-display.expired { color: #E74C3C; }
-  .timer-bar-wrap { height: 4px; background: #1E1E1E; border-radius: 2px; margin-bottom: 12px; overflow: hidden; }
-  .timer-bar { height: 4px; background: #2ECC71; border-radius: 2px; transition: width 1s linear, background 0.5s; width: 100%; }
-  .timer-bar.low { background: #E74C3C; }
+  .win-banner h2 { font-family: 'Fredoka', sans-serif; font-size: 28px; font-weight: 700; letter-spacing: 1px; color: #fff; }
+  .win-banner p { font-size: 11px; color: rgba(255,255,255,0.85); margin-top: 3px; }
+
+  /* TIMER */
+  .timer-section { background: #11403E; border: 2px solid var(--pink); border-radius: 16px; margin: 14px 16px; padding: 20px 18px 22px; text-align: center; box-shadow: 0 0 20px rgba(217,139,201,0.25); }
+  .timer-section .timer-cap { font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); margin-bottom: 6px; }
+  .timer-display { font-family: 'Bebas Neue', sans-serif; font-size: 104px; letter-spacing: 5px; line-height: 0.9; margin-bottom: 12px; text-shadow: 0 2px 12px rgba(0,0,0,0.3); }
+  .timer-display.stopped { color: var(--muted); }
+  .timer-display.running { color: var(--win); text-shadow: 0 0 16px rgba(111,224,166,0.5); }
+  .timer-display.paused { color: var(--pink-bright); }
+  .timer-display.expired { color: var(--loss); }
+  .timer-bar-wrap { height: 5px; background: var(--teal-line); border-radius: 3px; margin-bottom: 14px; overflow: hidden; }
+  .timer-bar { height: 5px; background: var(--win); border-radius: 3px; transition: width 1s linear, background 0.5s; width: 100%; }
+  .timer-bar.low { background: var(--loss); }
   .timer-controls { display: flex; justify-content: center; gap: 10px; }
-  .btn-timer { padding: 10px 22px; border-radius: 8px; border: none; font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; cursor: pointer; }
+  .btn-timer { padding: 12px 26px; border-radius: 10px; border: none; font-family: 'Fredoka', sans-serif; font-size: 13px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; cursor: pointer; }
   .btn-timer:active { opacity: 0.7; }
-  .btn-start { background: #2ECC71; color: #000; }
-  .btn-pause { background: #FFB800; color: #000; }
-  .btn-reset { background: #1E1E1E; color: #666; }
+  .btn-start { background: var(--win); color: #083322; }
+  .btn-pause { background: var(--pink); color: #fff; }
+  .btn-reset { background: var(--teal-line); color: var(--cream-dim); }
+
+  /* PATH */
   .path { max-width: 480px; margin: 0 auto; padding: 20px 16px; }
-  .section-label { font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #444; margin-bottom: 12px; padding-left: 36px; }
+  .section-label { font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); margin-bottom: 12px; padding-left: 36px; }
   .game-block { position: relative; padding-left: 36px; }
-  .game-block::before { content: ''; position: absolute; left: 12px; top: 44px; bottom: -12px; width: 2px; background: #1E1E1E; }
+  .game-block::before { content: ''; position: absolute; left: 12px; top: 44px; bottom: -12px; width: 2px; background: var(--teal-line); }
   .game-block:last-child::before { display: none; }
-  .game-node { position: absolute; left: 4px; top: 16px; width: 18px; height: 18px; border-radius: 50%; border: 2px solid #222; background: #0F0F0F; z-index: 1; }
-  .game-node.active { background: #FFB800; border-color: #FFB800; box-shadow: 0 0 8px rgba(255,184,0,0.5); }
-  .game-node.done { background: #2ECC71; border-color: #2ECC71; }
-  .game-node.lost { background: #E74C3C; border-color: #E74C3C; }
-  .card { background: #1A1A1A; border: 1px solid #222; border-radius: 10px; margin-bottom: 12px; overflow: hidden; }
-  .card.active-card { border-color: #FFB800; }
-  .card-top { display: flex; align-items: center; gap: 8px; padding: 9px 14px; border-bottom: 1px solid #1E1E1E; }
-  .game-lbl { font-family: 'Bebas Neue', sans-serif; font-size: 14px; letter-spacing: 1px; color: #666; flex: 1; }
-  .time-lbl { font-size: 11px; font-weight: 600; color: #555; }
-  .bracket-tag { font-size: 10px; font-weight: 700; letter-spacing: 1px; padding: 2px 8px; border-radius: 4px; text-transform: uppercase; }
-  .tag-w { background: rgba(46,204,113,0.12); color: #2ECC71; }
-  .tag-l { background: rgba(231,76,60,0.12); color: #E74C3C; }
-  .tag-champ { background: rgba(255,184,0,0.15); color: #FFB800; }
-  .tag-tb { background: rgba(192,160,0,0.15); color: #C0A000; }
+  .game-node { position: absolute; left: 4px; top: 16px; width: 18px; height: 18px; border-radius: 50%; border: 2px solid var(--teal-line); background: var(--teal-deep); z-index: 1; }
+  .game-node.active { background: var(--pink); border-color: var(--pink); box-shadow: 0 0 8px rgba(196,78,154,0.6); }
+  .game-node.done { background: var(--win); border-color: var(--win); }
+  .game-node.lost { background: var(--loss); border-color: var(--loss); }
+  .card { background: var(--teal-card); border: 1px solid var(--teal-line); border-radius: 12px; margin-bottom: 12px; overflow: hidden; }
+  .card.active-card { border-color: var(--pink); }
+  .card-top { display: flex; align-items: center; gap: 8px; padding: 10px 14px; border-bottom: 1px solid var(--teal-line); }
+  .game-lbl { font-family: 'Fredoka', sans-serif; font-size: 15px; font-weight: 600; letter-spacing: 0.5px; color: var(--cream-dim); flex: 1; }
+  .time-lbl { font-size: 11px; font-weight: 600; color: var(--muted); }
+  .bracket-tag { font-size: 10px; font-weight: 700; letter-spacing: 1px; padding: 2px 8px; border-radius: 5px; text-transform: uppercase; }
+  .tag-w { background: rgba(70,201,138,0.15); color: var(--win); }
+  .tag-l { background: rgba(224,96,127,0.15); color: var(--loss); }
+  .tag-champ { background: rgba(196,78,154,0.18); color: var(--pink-bright); }
+  .tag-tb { background: rgba(123,66,107,0.3); color: #D98BC4; }
   .card-body { padding: 12px 14px; }
   .matchup-teams { display: flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 600; margin-bottom: 8px; }
-  .t-goon { color: #FFB800; }
-  .t-opp { color: #ccc; }
-  .t-vs { color: #333; font-size: 10px; font-weight: 700; }
-  .card-note { font-size: 11px; color: #555; line-height: 1.5; }
+  .t-goon { color: var(--pink-bright); }
+  .t-opp { color: var(--cream-dim); }
+  .t-vs { color: var(--muted); font-size: 10px; font-weight: 700; }
+  .card-note { font-size: 11px; color: var(--muted); line-height: 1.5; }
   .result-btns { display: flex; gap: 8px; margin-top: 10px; }
-  .btn-result { flex: 1; padding: 9px 8px; border-radius: 6px; border: 1px solid; font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; cursor: pointer; text-align: center; background: transparent; }
+  .btn-result { flex: 1; padding: 11px 8px; border-radius: 8px; border: 1px solid; font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; cursor: pointer; text-align: center; background: transparent; }
   .btn-result:active { opacity: 0.7; }
-  .btn-win { border-color: #2ECC71; color: #2ECC71; }
-  .btn-win:hover { background: rgba(46,204,113,0.1); }
-  .btn-loss { border-color: #E74C3C; color: #E74C3C; }
-  .btn-loss:hover { background: rgba(231,76,60,0.1); }
-  .milestone-card { border: 1px dashed #222; border-radius: 10px; margin-bottom: 12px; padding: 14px; font-size: 11px; color: #444; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; text-align: center; }
-  .milestone-champ { border-color: #FFB800; color: #FFB800; font-size: 15px; }
-  .milestone-elim { border-color: #E74C3C; color: #E74C3C; }
+  .btn-win { border-color: var(--win); color: var(--win); }
+  .btn-win:hover { background: rgba(70,201,138,0.12); }
+  .btn-loss { border-color: var(--loss); color: var(--loss); }
+  .btn-loss:hover { background: rgba(224,96,127,0.12); }
+  .milestone-card { border: 1px dashed var(--teal-line); border-radius: 12px; margin-bottom: 12px; padding: 16px; font-size: 11px; color: var(--muted); font-weight: 700; letter-spacing: 1px; text-transform: uppercase; text-align: center; }
+  .milestone-champ { border-color: var(--pink); color: var(--pink-bright); font-size: 15px; }
+  .milestone-elim { border-color: var(--loss); color: var(--loss); }
 </style>
 </head>
 <body>
 
 <header>
-  <div class="eyebrow">Gus Macker &bull; Red R Court &bull; Ludington, MI</div>
-  <h1>GOON SQUAD</h1>
-  <div class="captain">Captain: P. Eerdmans</div>
+    <svg class="mascot" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" aria-label="Goon Squad mascot">
+    <ellipse cx="58" cy="112" rx="26" ry="5" fill="rgba(0,0,0,0.15)"/>
+    <!-- legs (thin, bent, striding) -->
+    <path d="M48 80 Q44 96 38 104" stroke="#C76FB4" stroke-width="4.5" fill="none" stroke-linecap="round"/>
+    <path d="M64 82 Q70 98 74 104" stroke="#C76FB4" stroke-width="4.5" fill="none" stroke-linecap="round"/>
+    <!-- white sneakers -->
+    <path d="M30 104 Q30 110 40 109 L41 103 Q35 101 30 104 Z" fill="#fff" stroke="#9B5A87" stroke-width="1"/>
+    <path d="M72 104 Q72 110 83 108 L83 102 Q77 101 72 104 Z" fill="#fff" stroke="#9B5A87" stroke-width="1"/>
+    <!-- left arm waving low -->
+    <path d="M38 60 Q24 60 20 50" stroke="#C76FB4" stroke-width="4.5" fill="none" stroke-linecap="round"/>
+    <circle cx="18" cy="47" r="5" fill="#D98BC9"/>
+    <!-- right arm raised, ball on fingertip -->
+    <path d="M80 58 Q94 50 92 36" stroke="#C76FB4" stroke-width="4.5" fill="none" stroke-linecap="round"/>
+    <circle cx="92" cy="33" r="3" fill="#D98BC9"/>
+    <!-- spinning ball above finger -->
+    <circle cx="93" cy="22" r="11" fill="#C76FB4"/>
+    <path d="M93 11 V33 M82 22 H104 M84 14 Q93 22 84 30 M102 14 Q93 22 102 30" stroke="#7B426B" stroke-width="1.3" fill="none"/>
+    <!-- body: pink basketball -->
+    <circle cx="58" cy="56" r="28" fill="#D27EBE"/>
+    <path d="M58 28 V84 M30 56 H86 M37 36 Q58 56 37 76 M79 36 Q58 56 79 76" stroke="#7B426B" stroke-width="2" fill="none"/>
+    <!-- face -->
+    <ellipse cx="50" cy="50" rx="4.4" ry="5.4" fill="#fff"/>
+    <ellipse cx="66" cy="50" rx="4.4" ry="5.4" fill="#fff"/>
+    <circle cx="50.5" cy="51" r="2.4" fill="#3A1230"/>
+    <circle cx="66.5" cy="51" r="2.4" fill="#3A1230"/>
+    <!-- rosy cheeks -->
+    <ellipse cx="44" cy="60" rx="3.5" ry="2.4" fill="#E89FD6" opacity="0.7"/>
+    <ellipse cx="72" cy="60" rx="3.5" ry="2.4" fill="#E89FD6" opacity="0.7"/>
+    <!-- open smile -->
+    <path d="M48 64 Q58 76 70 64 Q58 70 48 64 Z" fill="#3A1230"/>
+    <path d="M50 66 Q58 71 68 66" stroke="#fff" stroke-width="1.6" fill="none"/>
+  </svg>
+  <div class="header-text">
+    <div class="eyebrow">Gus Macker &bull; Red R Court</div>
+    <h1>GOON SQUAD</h1>
+    <div class="captain">Captain: P. Eerdmans</div>
+  </div>
 </header>
 
 <div class="scoreboard">
@@ -124,6 +189,7 @@
 </div>
 
 <div class="timer-section">
+  <div class="timer-cap">Game Clock &bull; 20:00 or first to 20</div>
   <div class="timer-display stopped" id="timer-display">20:00</div>
   <div class="timer-bar-wrap"><div class="timer-bar" id="timer-bar"></div></div>
   <div class="timer-controls">
@@ -367,7 +433,7 @@
 </div>
 
 <script>
-  const TOTAL = 20 * 60;
+const TOTAL = 20 * 60;
   let secondsLeft = TOTAL, interval = null, running = false;
   let scores = { goon: 0, opp: 0 };
 
