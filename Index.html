@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Goon Squad | Gus Macker Red R</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap');
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: #0F0F0F;
+    color: #F0F0F0;
+    font-family: 'Inter', sans-serif;
+    min-height: 100vh;
+    padding: 0 0 60px;
+  }
+
+  header {
+    background: #1A1A1A;
+    border-bottom: 3px solid #FFB800;
+    padding: 24px 20px 20px;
+    text-align: center;
+  }
+
+  .eyebrow {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #888;
+    margin-bottom: 6px;
+  }
+
+  h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 52px;
+    letter-spacing: 3px;
+    color: #FFB800;
+    line-height: 1;
+  }
+
+  .captain {
+    margin-top: 6px;
+    font-size: 12px;
+    color: #666;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  .status-bar {
+    background: #1E1E1E;
+    border-bottom: 1px solid #2A2A2A;
+    padding: 12px 20px;
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #666;
+  }
+
+  .status-bar span { display: flex; align-items: center; gap: 6px; }
+  .dot { width: 8px; height: 8px; border-radius: 50%; }
+  .dot-live { background: #2ECC71; box-shadow: 0 0 6px #2ECC71; }
+  .dot-next { background: #FFB800; }
+  .dot-done { background: #444; }
+
+  .path {
+    max-width: 480px;
+    margin: 0 auto;
+    padding: 24px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .game-block {
+    position: relative;
+    padding-left: 36px;
+  }
+
+  .game-block::before {
+    content: '';
+    position: absolute;
+    left: 12px;
+    top: 44px;
+    bottom: -16px;
+    width: 2px;
+    background: #2A2A2A;
+  }
+
+  .game-block:last-child::before { display: none; }
+
+  .game-node {
+    position: absolute;
+    left: 4px;
+    top: 14px;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    border: 2px solid #2A2A2A;
+    background: #0F0F0F;
+    z-index: 1;
+  }
+
+  .game-node.done { background: #444; border-color: #444; }
+  .game-node.next { background: #FFB800; border-color: #FFB800; box-shadow: 0 0 8px rgba(255,184,0,0.5); }
+  .game-node.live { background: #2ECC71; border-color: #2ECC71; box-shadow: 0 0 8px rgba(46,204,113,0.5); }
+
+  .card {
+    background: #1A1A1A;
+    border: 1px solid #2A2A2A;
+    border-radius: 10px;
+    margin-bottom: 16px;
+    overflow: hidden;
+    transition: border-color 0.2s;
+  }
+
+  .card.next-game { border-color: #FFB800; }
+  .card.eliminated { opacity: 0.5; }
+
+  .card-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 14px 8px;
+    border-bottom: 1px solid #252525;
+  }
+
+  .game-label {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 15px;
+    letter-spacing: 1px;
+    color: #888;
+  }
+
+  .time-label {
+    font-size: 11px;
+    font-weight: 700;
+    color: #888;
+    letter-spacing: 0.5px;
+  }
+
+  .bracket-tag {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    padding: 2px 8px;
+    border-radius: 4px;
+    text-transform: uppercase;
+  }
+
+  .tag-w { background: rgba(46,204,113,0.15); color: #2ECC71; }
+  .tag-l { background: rgba(231,76,60,0.15); color: #E74C3C; }
+
+  .matchup-body { padding: 12px 14px 14px; }
+
+  .team-vs {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 10px;
+  }
+
+  .team-name {
+    font-size: 15px;
+    font-weight: 700;
+    flex: 1;
+  }
+
+  .team-name.goon { color: #FFB800; }
+  .team-name.opp { color: #F0F0F0; }
+
+  .vs { font-size: 11px; font-weight: 700; color: #444; }
+
+  .result-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 8px;
+  }
+
+  .result-pill {
+    font-size: 11px;
+    font-weight: 700;
+    padding: 3px 10px;
+    border-radius: 20px;
+    letter-spacing: 1px;
+  }
+
+  .win { background: rgba(46,204,113,0.2); color: #2ECC71; }
+  .loss { background: rgba(231,76,60,0.2); color: #E74C3C; }
+  .pending { background: rgba(255,184,0,0.15); color: #FFB800; }
+
+  .next-label {
+    font-size: 11px;
+    color: #888;
+  }
+
+  .milestone {
+    text-align: center;
+    padding: 20px 14px;
+    background: #1A1A1A;
+    border: 1px dashed #2A2A2A;
+    border-radius: 10px;
+    margin-bottom: 16px;
+    color: #444;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  .big-next {
+    background: linear-gradient(135deg, #1A1A0A, #1A1500);
+    border-color: #FFB800;
+  }
+
+  .big-next .game-label,
+  .big-next .time-label { color: #FFB800; }
+
+</style>
+</head>
+<body>
+
+<header>
+  <div class="eyebrow">Gus Macker &bull; Red R Court &bull; Ludington, MI</div>
+  <h1>GOON SQUAD</h1>
+  <div class="captain">Captain: P. Eerdmans</div>
+</header>
+
+<div class="status-bar">
+  <span><span class="dot dot-next"></span> Up Next</span>
+  <span><span class="dot dot-live"></span> Live</span>
+  <span><span class="dot dot-done"></span> Completed</span>
+</div>
+
+<div class="path">
+
+  <!-- GAME 8 - First game -->
+  <div class="game-block">
+    <div class="game-node next"></div>
+    <div class="card next-game big-next">
+      <div class="card-top">
+        <div class="game-label">Game 8</div>
+        <div class="time-label">Sat 12:00 PM</div>
+        <span class="bracket-tag tag-w">Winners</span>
+      </div>
+      <div class="matchup-body">
+        <div class="team-vs">
+          <div class="team-name goon">Goon Squad / Eerdmans</div>
+          <div class="vs">vs</div>
+          <div class="team-name opp">Put A Hand Up</div>
+        </div>
+        <div class="result-row">
+          <span class="result-pill pending">UP NEXT</span>
+          <span class="next-label">Win advances to Winners R2. Loss drops to Losers bracket.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- IF WIN -->
+  <div class="game-block">
+    <div class="game-node"></div>
+    <div class="milestone">If Win &rarr; Winners Round 2 (Sunday ~12:30 PM)</div>
+  </div>
+
+  <!-- IF LOSS -->
+  <div class="game-block">
+    <div class="game-node"></div>
+    <div class="card">
+      <div class="card-top">
+        <div class="game-label">Game 13</div>
+        <div class="time-label">Sat 3:00 PM</div>
+        <span class="bracket-tag tag-l">Losers R1</span>
+      </div>
+      <div class="matchup-body">
+        <div class="team-vs">
+          <div class="team-name goon">Goon Squad</div>
+          <div class="vs">vs</div>
+          <div class="team-name opp">Loser of Game 7</div>
+        </div>
+        <div class="result-row">
+          <span class="result-pill pending">IF LOSS IN G8</span>
+          <span class="next-label">Win here keeps you alive. Loss is eliminated.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- LOSERS R2 -->
+  <div class="game-block">
+    <div class="game-node"></div>
+    <div class="card">
+      <div class="card-top">
+        <div class="game-label">Game 17</div>
+        <div class="time-label">Sat 5:00 PM</div>
+        <span class="bracket-tag tag-l">Losers R2</span>
+      </div>
+      <div class="matchup-body">
+        <div class="team-vs">
+          <div class="team-name goon">Goon Squad</div>
+          <div class="vs">vs</div>
+          <div class="team-name opp">Loser bracket winner</div>
+        </div>
+        <div class="result-row">
+          <span class="result-pill pending">IF SURVIVE G13</span>
+          <span class="next-label">Win continues Sunday. Loss goes to Toilet Bowl or out.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SUNDAY LOSERS -->
+  <div class="game-block">
+    <div class="game-node"></div>
+    <div class="card">
+      <div class="card-top">
+        <div class="game-label">Game 20</div>
+        <div class="time-label">Sun 8:30 AM</div>
+        <span class="bracket-tag tag-l">Losers Sun R1</span>
+      </div>
+      <div class="matchup-body">
+        <div class="team-vs">
+          <div class="team-name goon">Goon Squad</div>
+          <div class="vs">vs</div>
+          <div class="team-name opp">Loser of Winners G14 area</div>
+        </div>
+        <div class="result-row">
+          <span class="result-pill pending">IF SURVIVE SAT</span>
+          <span class="next-label">Deep losers bracket run into Sunday.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SEMIFINAL -->
+  <div class="game-block">
+    <div class="game-node"></div>
+    <div class="card">
+      <div class="card-top">
+        <div class="game-label">Semi 31</div>
+        <div class="time-label">Sun 4:30 PM</div>
+        <span class="bracket-tag tag-w">Semifinal</span>
+      </div>
+      <div class="matchup-body">
+        <div class="team-vs">
+          <div class="team-name goon">Goon Squad</div>
+          <div class="vs">vs</div>
+          <div class="team-name opp">Losers finalist</div>
+        </div>
+        <div class="result-row">
+          <span class="result-pill pending">CHAMPIONSHIP PATH</span>
+          <span class="next-label">Winner faces the top of the winners bracket for the title.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CHAMPIONSHIP -->
+  <div class="game-block">
+    <div class="game-node"></div>
+    <div class="card" style="border-color:#FFB800;">
+      <div class="card-top" style="border-color:#2A2A00;">
+        <div class="game-label" style="color:#FFB800; font-size:18px;">Final 32</div>
+        <div class="time-label" style="color:#FFB800;">Sun 5:30 PM</div>
+        <span class="bracket-tag tag-w" style="background:rgba(255,184,0,0.2); color:#FFB800;">Championship</span>
+      </div>
+      <div class="matchup-body">
+        <div class="team-vs">
+          <div class="team-name goon">Goon Squad</div>
+          <div class="vs">vs</div>
+          <div class="team-name opp">Winners bracket champion</div>
+        </div>
+        <div class="result-row">
+          <span class="result-pill pending">THE GOAL</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>
