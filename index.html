@@ -103,6 +103,70 @@
   .milestone-card { border: 1px dashed var(--teal-line); border-radius: 12px; margin-bottom: 12px; padding: 16px; font-size: 11px; color: var(--muted); font-weight: 700; letter-spacing: 1px; text-transform: uppercase; text-align: center; }
   .milestone-champ { border-color: var(--pink); color: var(--pink-bright); font-size: 15px; }
   .milestone-elim  { border-color: var(--loss); color: var(--loss); }
+
+  
+  
+  
+  
+  
+
+  
+  .tab-nav { display: flex; background: var(--teal-mid); border-bottom: 3px solid var(--pink); }
+  .tab-btn { flex: 1; padding: 13px 8px; border: none; background: transparent; color: rgba(255,246,238,0.6); font-family: 'Fredoka', sans-serif; font-size: 14px; font-weight: 600; cursor: pointer; border-bottom: 3px solid transparent; margin-bottom: -3px; touch-action: manipulation; }
+  .tab-btn.active { color: var(--cream); border-bottom-color: var(--pink); }
+  .tab-panel { display: none; }
+  .tab-panel.active { display: block; }
+
+  /* BASKETBALL GAME */
+  .bball-wrap { padding: 12px 16px 24px; max-width: 480px; margin: 0 auto; }
+  .bball-hud { display: flex; gap: 10px; margin-bottom: 12px; }
+  .hud-box { flex: 1; background: var(--teal-card); border-radius: 10px; border: 1px solid var(--teal-line); padding: 10px 8px; text-align: center; }
+  .hud-label { font-size: 9px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); margin-bottom: 2px; }
+  .hud-value { font-family: 'Bebas Neue', sans-serif; font-size: 52px; line-height: 1; color: var(--pink); }
+  .hud-value.timer-val { color: var(--win); }
+  .hud-value.timer-val.urgent { color: var(--loss); }
+  #bball-canvas { display: block; width: 100%; border-radius: 14px; border: 2px solid var(--teal-line); touch-action: none; cursor: crosshair; background: #0d3b38; }
+  .bball-power-wrap { margin: 10px 0 6px; }
+  .power-label { font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); margin-bottom: 6px; text-align: center; }
+  .power-bar-bg { background: var(--teal-line); border-radius: 8px; height: 18px; overflow: hidden; }
+  .power-bar-fill { height: 18px; border-radius: 8px; background: var(--win); transition: background 0.1s; }
+  .bball-btn { width: 100%; padding: 16px; background: var(--pink); color: #fff; border: none; border-radius: 12px; font-family: 'Fredoka', sans-serif; font-size: 18px; font-weight: 700; cursor: pointer; touch-action: manipulation; letter-spacing: 1px; margin-top: 8px; }
+  .bball-btn:active { opacity: 0.85; }
+  .bball-instructions { font-size: 12px; color: var(--muted); text-align: center; margin-top: 8px; line-height: 1.5; }
+  .lb-wrap { background: var(--teal-card); border-radius: 12px; border: 1px solid var(--teal-line); overflow: hidden; margin-top: 14px; }
+  .lb-head { padding: 11px 14px; border-bottom: 1px solid var(--teal-line); font-family: 'Fredoka', sans-serif; font-size: 14px; font-weight: 600; color: var(--pink-bright); }
+  .lb-row { display: flex; align-items: center; padding: 9px 14px; border-bottom: 1px solid var(--teal-line); gap: 10px; }
+  .lb-row:last-child { border-bottom: none; }
+  .lb-rank { font-family: 'Bebas Neue', sans-serif; font-size: 18px; color: var(--muted); min-width: 26px; }
+  .lb-rank.gold { color: #FFD700; } .lb-rank.silver { color: #C0C0C0; } .lb-rank.bronze { color: #CD7F32; }
+  .lb-name { flex: 1; font-size: 13px; font-weight: 600; color: var(--cream-dim); }
+  .lb-pts { font-family: 'Bebas Neue', sans-serif; font-size: 22px; color: var(--pink); }
+  .lb-empty { padding: 18px 14px; font-size: 12px; color: var(--muted); text-align: center; font-style: italic; }
+  .name-wrap { background: var(--teal-card); border-radius: 12px; border: 1px solid var(--pink); padding: 14px; margin-top: 12px; display: none; }
+  .name-wrap.show { display: block; }
+  .name-wrap p { font-size: 13px; color: var(--cream-dim); margin-bottom: 10px; }
+  .name-wrap input { width: 100%; padding: 10px 12px; background: var(--teal-deep); border: 1px solid var(--teal-line); border-radius: 8px; color: var(--cream); font-family: 'Fredoka', sans-serif; font-size: 16px; margin-bottom: 10px; outline: none; }
+  .name-wrap input::placeholder { color: var(--muted); }
+  .name-wrap button { width: 100%; padding: 12px; background: var(--pink); border: none; border-radius: 8px; color: #fff; font-family: 'Fredoka', sans-serif; font-size: 16px; font-weight: 600; cursor: pointer; }
+
+
+  /* FREE THROW GAME */
+  .ft-wrap { padding: 12px 16px 24px; max-width: 480px; margin: 0 auto; }
+  .ft-hud { display: flex; gap: 10px; margin-bottom: 12px; }
+  .ft-hud .hud-box { flex: 1; background: var(--teal-card); border-radius: 10px; border: 1px solid var(--teal-line); padding: 10px 8px; text-align: center; }
+  #ft-canvas { display: block; width: 100%; border-radius: 14px; border: 2px solid var(--teal-line); touch-action: none; cursor: pointer; background: #0d3b38; }
+  .ft-meter-wrap { margin: 10px 0 6px; position: relative; }
+  .ft-meter-bg { background: var(--teal-line); border-radius: 8px; height: 24px; overflow: hidden; position: relative; }
+  .ft-meter-zone { position: absolute; top: 0; height: 100%; background: rgba(111,224,166,0.4); border-radius: 4px; }
+  .ft-meter-needle { position: absolute; top: 0; width: 5px; height: 100%; background: var(--cream); border-radius: 3px; transition: left 0s; }
+  .ft-meter-label { font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); margin-bottom: 6px; text-align: center; }
+  .ft-shoot-btn { width: 100%; padding: 18px; background: var(--pink); color: #fff; border: none; border-radius: 12px; font-family: 'Fredoka', sans-serif; font-size: 20px; font-weight: 700; cursor: pointer; touch-action: manipulation; letter-spacing: 1px; margin-top: 8px; }
+  .ft-shoot-btn:active { opacity: 0.85; transform: scale(0.98); }
+  .ft-result-row { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 10px; justify-content: center; }
+  .ft-dot { width: 28px; height: 28px; border-radius: 50%; border: 2px solid var(--teal-line); background: var(--teal-deep); display: flex; align-items: center; justify-content: center; font-size: 14px; transition: background 0.2s; }
+  .ft-dot.made { background: var(--win); border-color: var(--win); }
+  .ft-dot.miss { background: var(--loss); border-color: var(--loss); }
+
 </style>
 </head>
 <body>
@@ -137,6 +201,14 @@
     <div class="captain">Captain: P. Eerdmans</div>
   </div>
 </header>
+<nav class="tab-nav">
+  <button class="tab-btn active" onclick="switchTab('tracker')" id="tab-btn-tracker">Bracket</button>
+  <button class="tab-btn" onclick="switchTab('bball')" id="tab-btn-bball">&#127944; Shoot Around</button>
+  <button class="tab-btn" onclick="switchTab('ft')" id="tab-btn-ft">&#127919; Free Throw</button>
+</nav>
+<div class="tab-panel active" id="panel-tracker">
+
+
 
 <!-- SCOREBOARD -->
 <div class="scoreboard">
@@ -398,5 +470,827 @@
 
   updateDisplay();
 </script>
+
+
+
+
+
+
+
+
+
+</div><!-- end panel-tracker -->
+
+<div class="tab-panel" id="panel-bball">
+  <div class="bball-wrap">
+    <div class="bball-hud">
+      <div class="hud-box">
+        <div class="hud-label">Score</div>
+        <div class="hud-value" id="bb-score">0</div>
+      </div>
+      <div class="hud-box">
+        <div class="hud-label">Time</div>
+        <div class="hud-value timer-val" id="bb-timer">30</div>
+      </div>
+      <div class="hud-box">
+        <div class="hud-label">Streak</div>
+        <div class="hud-value" id="bb-streak" style="font-size:40px;color:var(--cream)">0</div>
+      </div>
+    </div>
+
+    <canvas id="bball-canvas" width="420" height="320"></canvas>
+
+    <div class="bball-power-wrap">
+      <div class="power-label">Power &amp; Angle &mdash; hold to charge, release to shoot</div>
+      <div class="power-bar-bg">
+        <div class="power-bar-fill" id="bb-power-bar" style="width:0%"></div>
+      </div>
+    </div>
+
+    <button class="bball-btn" id="bb-start-btn" onclick="bbStart()">Start Game</button>
+    <div class="bball-instructions" id="bb-instructions">Press and hold anywhere on court to aim &amp; charge. Release to shoot.</div>
+
+    <div class="name-wrap" id="bb-name-wrap">
+      <p>Nice game! Enter your name for the leaderboard.</p>
+      <input type="text" id="bb-name-input" placeholder="Your name" maxlength="20"/>
+      <button onclick="bbSaveName()">Save Score</button>
+    </div>
+
+    <div class="lb-wrap">
+      <div class="lb-head">&#127936; Leaderboard</div>
+      <div id="bb-lb-rows"><div class="lb-empty">No scores yet. Play first!</div></div>
+    </div>
+  </div>
+</div><!-- end panel-bball -->
+
+
+<div class="tab-panel" id="panel-ft">
+  <div class="ft-wrap">
+    <div class="ft-hud">
+      <div class="hud-box">
+        <div class="hud-label">Made</div>
+        <div class="hud-value" id="ft-made">0</div>
+      </div>
+      <div class="hud-box">
+        <div class="hud-label">Shot</div>
+        <div class="hud-value" id="ft-shot">0<span style="font-size:24px;opacity:.5"> / 10</span></div>
+      </div>
+      <div class="hud-box">
+        <div class="hud-label">Pct</div>
+        <div class="hud-value" id="ft-pct" style="font-size:40px">--%</div>
+      </div>
+    </div>
+
+    <canvas id="ft-canvas" width="420" height="280"></canvas>
+
+    <div class="ft-meter-wrap">
+      <div class="ft-meter-label">Release meter &mdash; tap when needle is in the green zone</div>
+      <div class="ft-meter-bg" id="ft-meter-bg">
+        <div class="ft-meter-zone" id="ft-meter-zone"></div>
+        <div class="ft-meter-needle" id="ft-needle"></div>
+      </div>
+    </div>
+
+    <div class="ft-result-row" id="ft-dots"></div>
+
+    <button class="ft-shoot-btn" id="ft-shoot-btn" onclick="ftShoot()">Start</button>
+
+    <div class="name-wrap" id="ft-name-wrap">
+      <p>Nice shooting! Enter your name for the leaderboard.</p>
+      <input type="text" id="ft-name-input" placeholder="Your name" maxlength="20"/>
+      <button onclick="ftSaveName()">Save Score</button>
+    </div>
+
+    <div class="lb-wrap" style="margin-top:14px">
+      <div class="lb-head">&#127919; Free Throw Board</div>
+      <div id="ft-lb-rows"><div class="lb-empty">No scores yet. Shoot first!</div></div>
+    </div>
+  </div>
+</div><!-- end panel-ft -->
+
 </body>
 </html>
+<script>
+// ── TAB SWITCHER ──────────────────────────────────────────────────────────────
+function switchTab(name) {
+  document.querySelectorAll('.tab-panel').forEach(function(p){ p.classList.remove('active'); });
+  document.querySelectorAll('.tab-btn').forEach(function(b){ b.classList.remove('active'); });
+  document.getElementById('panel-' + name).classList.add('active');
+  document.getElementById('tab-btn-' + name).classList.add('active');
+  if (name === 'bball') bbInit();
+  if (name === 'ft') ftInit();
+}
+
+// ── BASKETBALL GAME ───────────────────────────────────────────────────────────
+var BB = {
+  ready: false,
+  state: 'idle',   // idle | countdown | playing | shot | over
+  score: 0,
+  streak: 0,
+  timeLeft: 30,
+  timerInt: null,
+  pending: 0,
+  power: 0,
+  charging: false,
+  chargeStart: 0,
+  aimAngle: -55,   // degrees, from player
+  holdX: 0, holdY: 0,
+  ball: null,      // { x, y, vx, vy, active }
+  swish: null,     // { x, y, t, text }
+  miss:  null,
+  ctx: null,
+  W: 420, H: 320,
+  scores: [],
+  raf: null,
+};
+
+// Court layout constants (relative to canvas size set in init)
+var PLAYER_X_RATIO = 0.15;
+var HOOP_X_RATIO   = 0.80;
+var HOOP_Y_RATIO   = 0.38;
+var FLOOR_Y_RATIO  = 0.82;
+var BACKBOARD_H    = 0.12; // ratio of H
+
+function bbInit() {
+  if (BB.ready) return;
+  var canvas = document.getElementById('bball-canvas');
+  if (!canvas) return;
+  BB.ctx = canvas.getContext('2d');
+  BB.W = canvas.width;
+  BB.H = canvas.height;
+  try { BB.scores = JSON.parse(localStorage.getItem('bb_scores') || '[]'); } catch(e) {}
+  canvas.addEventListener('mousedown',  bbPressStart, false);
+  canvas.addEventListener('mouseup',    bbPressEnd,   false);
+  canvas.addEventListener('mousemove',  bbPressMove,  false);
+  canvas.addEventListener('touchstart', bbPressStart, { passive: false });
+  canvas.addEventListener('touchend',   bbPressEnd,   { passive: false });
+  canvas.addEventListener('touchmove',  bbPressMove,  { passive: false });
+  BB.ready = true;
+  bbRenderLB();
+  bbLoop();
+}
+
+function bbGetPos(e) {
+  var canvas = document.getElementById('bball-canvas');
+  var rect = canvas.getBoundingClientRect();
+  var sx = BB.W / rect.width, sy = BB.H / rect.height;
+  if (e.touches && e.touches.length) {
+    return { x: (e.touches[0].clientX - rect.left) * sx, y: (e.touches[0].clientY - rect.top) * sy };
+  }
+  return { x: (e.clientX - rect.left) * sx, y: (e.clientY - rect.top) * sy };
+}
+
+function bbPressStart(e) {
+  e.preventDefault();
+  if (BB.state !== 'playing') return;
+  if (BB.ball && BB.ball.active) return;
+  var p = bbGetPos(e);
+  BB.charging = true;
+  BB.chargeStart = Date.now();
+  BB.holdX = p.x; BB.holdY = p.y;
+  // angle from player center to tap point
+  var px = BB.W * PLAYER_X_RATIO;
+  var py = BB.H * FLOOR_Y_RATIO - 18;
+  var dx = p.x - px, dy = p.y - py;
+  BB.aimAngle = Math.atan2(dy, dx) * 180 / Math.PI;
+}
+
+function bbPressMove(e) {
+  e.preventDefault();
+  if (!BB.charging) return;
+  var p = bbGetPos(e);
+  BB.holdX = p.x; BB.holdY = p.y;
+  var px = BB.W * PLAYER_X_RATIO;
+  var py = BB.H * FLOOR_Y_RATIO - 18;
+  var dx = p.x - px, dy = p.y - py;
+  BB.aimAngle = Math.atan2(dy, dx) * 180 / Math.PI;
+}
+
+function bbPressEnd(e) {
+  e.preventDefault();
+  if (!BB.charging) return;
+  var held = (Date.now() - BB.chargeStart) / 1000;
+  BB.power = Math.min(held / 1.4, 1.0);
+  BB.charging = false;
+  bbShoot();
+}
+
+function bbShoot() {
+  if (BB.state !== 'playing') return;
+  var px = BB.W * PLAYER_X_RATIO + 10;
+  var py = BB.H * FLOOR_Y_RATIO - 30;
+  // clamp angle to upward-ish range
+  var ang = BB.aimAngle;
+  ang = Math.max(-85, Math.min(-20, ang));
+  var rad = ang * Math.PI / 180;
+  var spd = 6 + BB.power * 11;
+  BB.ball = {
+    x: px, y: py,
+    vx: Math.cos(rad) * spd,
+    vy: Math.sin(rad) * spd,
+    active: true,
+    trail: []
+  };
+  BB.state = 'shot';
+}
+
+function bbUpdate() {
+  if (!BB.ball || !BB.ball.active) return;
+  var b = BB.ball;
+  var GRAVITY = 0.38;
+  b.vy += GRAVITY;
+  b.x  += b.vx;
+  b.y  += b.vy;
+
+  // trail
+  b.trail.push({ x: b.x, y: b.y });
+  if (b.trail.length > 12) b.trail.shift();
+
+  var hx = BB.W * HOOP_X_RATIO;
+  var hy = BB.H * HOOP_Y_RATIO;
+  var rimR = 18;
+
+  // Check score: ball passes through rim
+  if (b.vx > 0 && b.x > hx - rimR && b.x < hx + rimR) {
+    if (Math.abs(b.y - hy) < 14 && b.vy > 0) {
+      // SCORE
+      var pts = BB.power > 0.65 ? 3 : 2;
+      BB.score += pts;
+      BB.streak++;
+      var label = '+' + pts + (BB.streak >= 3 ? '  x' + BB.streak + '!' : '');
+      BB.swish = { x: hx, y: hy - 20, t: 0, text: label };
+      document.getElementById('bb-score').textContent  = BB.score;
+      document.getElementById('bb-streak').textContent = BB.streak;
+      b.active = false;
+      BB.ball = null;
+      BB.state = 'playing';
+      return;
+    }
+  }
+
+  // Miss: off screen or hit floor
+  if (b.y > BB.H * FLOOR_Y_RATIO + 10 || b.x > BB.W + 20 || b.x < -20) {
+    BB.miss   = { x: b.x < 0 ? 40 : Math.min(b.x, BB.W - 40), y: BB.H * FLOOR_Y_RATIO - 30, t: 0 };
+    BB.streak = 0;
+    document.getElementById('bb-streak').textContent = '0';
+    b.active = false;
+    BB.ball = null;
+    BB.state = 'playing';
+  }
+}
+
+function bbDraw() {
+  var c = BB.ctx, W = BB.W, H = BB.H;
+  if (!c) return;
+  c.clearRect(0, 0, W, H);
+
+  var floorY = H * FLOOR_Y_RATIO;
+  var hx = W * HOOP_X_RATIO;
+  var hy = H * HOOP_Y_RATIO;
+  var px = W * PLAYER_X_RATIO;
+
+  // Background sky gradient (hardcoded, physical scene)
+  c.fillStyle = '#0d3b38'; c.fillRect(0, 0, W, H);
+  // floor
+  c.fillStyle = '#1a5c57'; c.fillRect(0, floorY, W, H - floorY);
+  c.fillStyle = '#237069'; c.fillRect(0, floorY, W, 3);
+  // floor lines
+  c.strokeStyle = 'rgba(255,255,255,0.08)'; c.lineWidth = 1.5;
+  c.beginPath(); c.arc(W/2, floorY, W * 0.22, Math.PI, 0); c.stroke();
+  c.beginPath(); c.moveTo(W * 0.55, floorY); c.lineTo(W * 0.55, floorY - 2); c.stroke();
+
+  // BACKBOARD
+  var bbX = hx + 26, bbTop = hy - H * BACKBOARD_H, bbBot = hy + H * BACKBOARD_H;
+  c.fillStyle = '#2a2a2a';
+  c.fillRect(bbX, bbTop, 10, bbBot - bbTop);
+  c.strokeStyle = '#555'; c.lineWidth = 1; c.strokeRect(bbX, bbTop, 10, bbBot - bbTop);
+  // inner box on backboard
+  c.strokeStyle = '#E0607F'; c.lineWidth = 1.5;
+  c.strokeRect(bbX + 1, hy - 14, 8, 20);
+  // pole
+  c.fillStyle = '#2a2a2a';
+  c.fillRect(bbX + 2, bbBot, 6, floorY - bbBot);
+
+  // RIM
+  c.strokeStyle = '#E05A20'; c.lineWidth = 4;
+  c.beginPath(); c.moveTo(hx - 18, hy); c.lineTo(bbX, hy); c.stroke();
+  c.strokeStyle = '#E05A20'; c.lineWidth = 3;
+  c.beginPath(); c.arc(hx, hy, 4, 0, Math.PI*2); c.stroke();
+
+  // NET (simple lines)
+  c.strokeStyle = 'rgba(255,255,255,0.35)'; c.lineWidth = 1;
+  var netTop = hy, netBot = hy + 24, netW = 16;
+  for (var i = 0; i <= 4; i++) {
+    var nx = hx - netW + (i * netW / 2);
+    var nbx = hx - netW * 0.4 + (i * netW * 0.8 / 4);
+    c.beginPath(); c.moveTo(nx, netTop); c.lineTo(nbx, netBot); c.stroke();
+  }
+  for (var j = 0; j < 3; j++) {
+    var ny = netTop + 8 + j * 8;
+    c.beginPath(); c.moveTo(hx - netW + 2, ny); c.lineTo(hx + 4, ny); c.stroke();
+  }
+
+  // PLAYER (simple figure)
+  var py2 = floorY;
+  // body
+  c.fillStyle = '#D98BC9'; // jersey pink
+  c.beginPath(); c.ellipse(px, py2 - 28, 9, 18, 0, 0, Math.PI*2); c.fill();
+  // head
+  c.fillStyle = '#E8B89A';
+  c.beginPath(); c.arc(px, py2 - 52, 10, 0, Math.PI*2); c.fill();
+  // arms - shooting pose when charging or aiming
+  c.strokeStyle = '#D98BC9'; c.lineWidth = 4; c.lineCap = 'round';
+  var armAng = BB.charging ? -70 : -50;
+  var ar = armAng * Math.PI / 180;
+  c.beginPath(); c.moveTo(px, py2 - 38); c.lineTo(px + Math.cos(ar) * 22, py2 - 38 + Math.sin(ar) * 22); c.stroke();
+  // legs
+  c.fillStyle = '#2E827D';
+  c.fillRect(px - 8, py2 - 12, 7, 14); c.fillRect(px + 1, py2 - 12, 7, 14);
+  c.fillStyle = '#1E1E1E';
+  c.fillRect(px - 9, py2 - 2, 8, 4); c.fillRect(px + 1, py2 - 2, 8, 4);
+
+  // AIM LINE (dashed) while charging
+  if (BB.charging) {
+    var ang2 = Math.max(-85, Math.min(-20, BB.aimAngle)) * Math.PI / 180;
+    c.save();
+    c.strokeStyle = 'rgba(232,159,214,0.45)';
+    c.lineWidth = 1.5;
+    c.setLineDash([5, 5]);
+    c.beginPath();
+    c.moveTo(px + 10, py2 - 30);
+    for (var s = 0; s < 14; s++) {
+      var tx = px + 10 + Math.cos(ang2) * (s * 18);
+      var ty = py2 - 30 + Math.sin(ang2) * (s * 18) + 0.38 * s * s * 0.5;
+      c.lineTo(tx, ty);
+    }
+    c.stroke();
+    c.setLineDash([]);
+    c.restore();
+  }
+
+  // POWER BAR fill
+  var pw = BB.charging ? Math.min((Date.now() - BB.chargeStart) / 1400, 1.0) : 0;
+  var barEl = document.getElementById('bb-power-bar');
+  if (barEl) {
+    barEl.style.width = Math.round(pw * 100) + '%';
+    barEl.style.background = pw > 0.7 ? '#F58AA1' : pw > 0.4 ? '#FFD700' : '#6FE0A6';
+  }
+
+  // BALL trail
+  if (BB.ball && BB.ball.trail) {
+    BB.ball.trail.forEach(function(pt, i) {
+      var a = (i / BB.ball.trail.length) * 0.3;
+      c.beginPath(); c.arc(pt.x, pt.y, 5 * (i / BB.ball.trail.length), 0, Math.PI*2);
+      c.fillStyle = 'rgba(210,126,190,' + a + ')'; c.fill();
+    });
+  }
+
+  // BALL
+  if (BB.ball && BB.ball.active) {
+    var b = BB.ball;
+    c.beginPath(); c.arc(b.x, b.y, 11, 0, Math.PI*2);
+    c.fillStyle = '#D27EBE'; c.fill();
+    c.strokeStyle = '#7B426B'; c.lineWidth = 1.5; c.stroke();
+    // seams
+    c.beginPath(); c.arc(b.x, b.y, 11, -0.4, 0.4);
+    c.strokeStyle = '#7B426B'; c.lineWidth = 1; c.stroke();
+    c.beginPath(); c.moveTo(b.x, b.y - 11); c.lineTo(b.x, b.y + 11);
+    c.stroke();
+  }
+
+  // SWISH feedback
+  if (BB.swish) {
+    BB.swish.t += 0.04;
+    if (BB.swish.t < 1.5) {
+      c.save();
+      c.globalAlpha = Math.max(0, 1 - BB.swish.t * 0.7);
+      c.font = 'bold 28px "Bebas Neue", sans-serif';
+      c.fillStyle = '#6FE0A6';
+      c.textAlign = 'center';
+      c.textBaseline = 'middle';
+      c.fillText(BB.swish.text, BB.swish.x, BB.swish.y - BB.swish.t * 35);
+      c.restore();
+    } else { BB.swish = null; }
+  }
+
+  // MISS feedback
+  if (BB.miss) {
+    BB.miss.t += 0.04;
+    if (BB.miss.t < 1.0) {
+      c.save();
+      c.globalAlpha = Math.max(0, 1 - BB.miss.t);
+      c.font = 'bold 22px "Bebas Neue", sans-serif';
+      c.fillStyle = '#F58AA1';
+      c.textAlign = 'center';
+      c.textBaseline = 'middle';
+      c.fillText('MISS', BB.miss.x, BB.miss.y - BB.miss.t * 25);
+      c.restore();
+    } else { BB.miss = null; }
+  }
+
+  // IDLE overlay
+  if (BB.state === 'idle' || BB.state === 'countdown') {
+    c.fillStyle = 'rgba(0,0,0,0.55)';
+    c.fillRect(0, 0, W, H);
+    c.textAlign = 'center'; c.textBaseline = 'middle';
+    c.font = 'bold 44px "Bebas Neue", sans-serif';
+    c.fillStyle = '#E89FD6';
+    c.fillText(BB.state === 'countdown' ? 'GET READY!' : 'SHOOT AROUND', W/2, H/2 - 14);
+    c.font = '16px "Fredoka", sans-serif';
+    c.fillStyle = 'rgba(255,246,238,0.7)';
+    c.fillText('Hold to aim & charge, release to shoot', W/2, H/2 + 20);
+  }
+
+  // GAME OVER overlay
+  if (BB.state === 'over') {
+    c.fillStyle = 'rgba(0,0,0,0.6)';
+    c.fillRect(0, 0, W, H);
+    c.textAlign = 'center'; c.textBaseline = 'middle';
+    c.font = 'bold 56px "Bebas Neue", sans-serif';
+    c.fillStyle = '#E89FD6';
+    c.fillText('BUZZER!', W/2, H/2 - 32);
+    c.font = 'bold 40px "Bebas Neue", sans-serif';
+    c.fillStyle = '#6FE0A6';
+    c.fillText(BB.score + ' PTS', W/2, H/2 + 20);
+  }
+}
+
+function bbLoop() {
+  bbUpdate();
+  bbDraw();
+  requestAnimationFrame(bbLoop);
+}
+
+function bbStart() {
+  if (!BB.ready) bbInit();
+  BB.score = 0; BB.streak = 0; BB.timeLeft = 30;
+  BB.ball = null; BB.swish = null; BB.miss = null; BB.charging = false;
+  document.getElementById('bb-score').textContent  = '0';
+  document.getElementById('bb-streak').textContent = '0';
+  document.getElementById('bb-timer').textContent  = '30';
+  document.getElementById('bb-timer').className    = 'hud-value timer-val';
+  document.getElementById('bb-start-btn').textContent = 'Restart';
+  document.getElementById('bb-instructions').textContent = 'Hold to aim & charge. Release to shoot!';
+  document.getElementById('bb-name-wrap').classList.remove('show');
+  BB.state = 'playing';
+  clearInterval(BB.timerInt);
+  BB.timerInt = setInterval(function() {
+    BB.timeLeft--;
+    var el = document.getElementById('bb-timer');
+    el.textContent = BB.timeLeft;
+    el.className = 'hud-value timer-val' + (BB.timeLeft <= 10 ? ' urgent' : '');
+    if (BB.timeLeft <= 0) {
+      clearInterval(BB.timerInt);
+      BB.state = 'over';
+      BB.ball = null; BB.charging = false;
+      BB.pending = BB.score;
+      document.getElementById('bb-start-btn').textContent = 'Play Again';
+      document.getElementById('bb-instructions').textContent = '';
+      if (BB.score > 0) {
+        document.getElementById('bb-name-wrap').classList.add('show');
+        setTimeout(function(){ document.getElementById('bb-name-input').focus(); }, 150);
+      }
+    }
+  }, 1000);
+}
+
+function bbSaveName() {
+  var name = document.getElementById('bb-name-input').value.trim() || 'Anonymous';
+  BB.scores.push({ name: name, pts: BB.pending });
+  BB.scores.sort(function(a,b){ return b.pts - a.pts; });
+  if (BB.scores.length > 10) BB.scores = BB.scores.slice(0, 10);
+  try { localStorage.setItem('bb_scores', JSON.stringify(BB.scores)); } catch(e) {}
+  document.getElementById('bb-name-wrap').classList.remove('show');
+  document.getElementById('bb-name-input').value = '';
+  bbRenderLB();
+}
+
+function bbRenderLB() {
+  var el = document.getElementById('bb-lb-rows');
+  if (!el) return;
+  if (!BB.scores.length) { el.innerHTML = '<div class="lb-empty">No scores yet. Play first!</div>'; return; }
+  var medals = ['&#127947;','&#129352;','&#129353;'];
+  el.innerHTML = BB.scores.map(function(s,i){
+    var rc = i===0?'gold':i===1?'silver':i===2?'bronze':'';
+    var rk = i < 3 ? medals[i] : '#'+(i+1);
+    return '<div class="lb-row"><div class="lb-rank '+rc+'">'+rk+'</div><div class="lb-name">'+s.name+'</div><div class="lb-pts">'+s.pts+'</div></div>';
+  }).join('');
+}
+</script>
+<script>
+// ── FREE THROW GAME ──────────────────────────────────────────────────────────
+var FT = {
+  ready: false,
+  state: 'idle',   // idle | ready | needle | ball | done
+  made: 0, shot: 0, pending: 0,
+  results: [],     // true=made, false=miss
+  needle: 0,       // 0..1 position
+  needleDir: 1,
+  needleSpeed: 0.018,
+  zoneStart: 0, zoneWidth: 0,
+  ball: null,
+  swish: null,
+  ctx: null, W: 420, H: 280,
+  scores: [],
+  raf: null,
+};
+
+try { FT.scores = JSON.parse(localStorage.getItem('ft_scores') || '[]'); } catch(e) {}
+
+function ftInit() {
+  if (FT.ready) return;
+  var canvas = document.getElementById('ft-canvas');
+  if (!canvas) return;
+  FT.ctx = canvas.getContext('2d');
+  FT.W = canvas.width; FT.H = canvas.height;
+  FT.ready = true;
+  ftSetZone();
+  ftRenderLB();
+  ftRenderDots();
+  ftLoop();
+}
+
+function ftSetZone() {
+  // Green zone: 25%-35% wide, random position within 10%-75% range
+  var w = 0.22 + Math.random() * 0.12;
+  var s = 0.10 + Math.random() * (0.78 - w);
+  FT.zoneStart = s; FT.zoneWidth = w;
+  // Update CSS zone
+  var zone = document.getElementById('ft-meter-zone');
+  if (zone) { zone.style.left = Math.round(s*100)+'%'; zone.style.width = Math.round(w*100)+'%'; }
+  // Speed increases each shot
+  FT.needleSpeed = 0.016 + (FT.shot / 10) * 0.020;
+}
+
+function ftStart() {
+  FT.made = 0; FT.shot = 0; FT.results = []; FT.needle = 0; FT.needleDir = 1;
+  FT.ball = null; FT.swish = null; FT.state = 'ready';
+  document.getElementById('ft-made').textContent = '0';
+  document.getElementById('ft-shot').innerHTML   = '0<span style="font-size:24px;opacity:.5"> / 10</span>';
+  document.getElementById('ft-pct').textContent  = '--%';
+  document.getElementById('ft-name-wrap').classList.remove('show');
+  document.getElementById('ft-shoot-btn').textContent = 'Release!';
+  ftSetZone();
+  ftRenderDots();
+  FT.state = 'needle';
+}
+
+function ftShoot() {
+  if (FT.state === 'idle' || FT.state === 'done') { ftStart(); return; }
+  if (FT.state !== 'needle') return;
+
+  // Did the needle land in the zone?
+  var inZone = FT.needle >= FT.zoneStart && FT.needle <= (FT.zoneStart + FT.zoneWidth);
+  // How centered? Affects arc accuracy
+  var centerDist = Math.abs((FT.needle - FT.zoneStart - FT.zoneWidth/2) / (FT.zoneWidth/2));
+  var made = inZone && (Math.random() > centerDist * 0.25);
+
+  FT.shot++;
+  if (made) FT.made++;
+  FT.results.push(made);
+
+  // Animate ball
+  var px = FT.W * 0.20, py = FT.H * 0.80;
+  var hx = FT.W * 0.74, hy = FT.H * 0.35;
+  FT.ball = { sx: px, sy: py, tx: hx, ty: hy, t: 0, made: made };
+  FT.swish = null;
+  FT.state = 'ball';
+
+  document.getElementById('ft-made').textContent = FT.made;
+  document.getElementById('ft-shot').innerHTML   = FT.shot + '<span style="font-size:24px;opacity:.5"> / 10</span>';
+  var pct = Math.round((FT.made / FT.shot) * 100);
+  document.getElementById('ft-pct').textContent  = pct + '%';
+  ftRenderDots();
+}
+
+function ftAfterBall() {
+  // Show swish/miss text
+  FT.swish = { text: FT.results[FT.results.length-1] ? 'SWISH!' : 'MISS', t: 0, made: FT.results[FT.results.length-1] };
+
+  if (FT.shot >= 10) {
+    FT.state = 'done';
+    FT.pending = Math.round((FT.made / 10) * 100);
+    document.getElementById('ft-shoot-btn').textContent = 'Play Again';
+    if (FT.made > 0) {
+      document.getElementById('ft-name-wrap').classList.add('show');
+      setTimeout(function(){ document.getElementById('ft-name-input').focus(); }, 150);
+    }
+    return;
+  }
+
+  // Next shot
+  ftSetZone();
+  FT.state = 'needle';
+  FT.needle = 0;
+  FT.needleDir = 1;
+  document.getElementById('ft-shoot-btn').textContent = 'Release!';
+}
+
+function ftUpdate() {
+  // Needle bounces
+  if (FT.state === 'needle') {
+    FT.needle += FT.needleDir * FT.needleSpeed;
+    if (FT.needle >= 1) { FT.needle = 1; FT.needleDir = -1; }
+    if (FT.needle <= 0) { FT.needle = 0; FT.needleDir = 1; }
+    var needle = document.getElementById('ft-needle');
+    if (needle) needle.style.left = Math.round(FT.needle * 96) + '%';
+  }
+
+  // Ball arc
+  if (FT.state === 'ball' && FT.ball) {
+    FT.ball.t += 0.04;
+    if (FT.ball.t >= 1) {
+      FT.ball.t = 1;
+      ftAfterBall();
+    }
+  }
+
+  // Swish fades
+  if (FT.swish) {
+    FT.swish.t += 0.035;
+    if (FT.swish.t > 1.5) FT.swish = null;
+  }
+}
+
+function ftDraw() {
+  var c = FT.ctx, W = FT.W, H = FT.H;
+  if (!c) return;
+  c.clearRect(0, 0, W, H);
+
+  var floorY = H * 0.82;
+  var hx = W * 0.74, hy = H * 0.35;
+  var px = W * 0.20;
+
+  // Background
+  c.fillStyle = '#0d3b38'; c.fillRect(0, 0, W, H);
+  c.fillStyle = '#1a5c57'; c.fillRect(0, floorY, W, H - floorY);
+  c.fillStyle = '#237069'; c.fillRect(0, floorY, W, 3);
+
+  // FREE THROW LINE (behind player)
+  c.strokeStyle = 'rgba(255,255,255,0.15)'; c.lineWidth = 2;
+  c.beginPath(); c.moveTo(px - 30, floorY); c.lineTo(px + 30, floorY); c.stroke();
+  c.strokeStyle = 'rgba(255,255,255,0.08)';
+  c.beginPath(); c.arc(px, floorY, 28, Math.PI, 0); c.stroke();
+
+  // LANE markings
+  c.strokeStyle = 'rgba(255,255,255,0.07)'; c.lineWidth = 1.5;
+  c.strokeRect(px - 10, H * 0.36, hx - px + 20, floorY - H * 0.36);
+
+  // BACKBOARD
+  var bbX = hx + 22;
+  c.fillStyle = '#2a2a2a'; c.fillRect(bbX, hy - H*0.14, 10, H*0.28);
+  c.strokeStyle = '#444'; c.lineWidth = 1; c.strokeRect(bbX, hy - H*0.14, 10, H*0.28);
+  c.strokeStyle = '#E0607F'; c.lineWidth = 1.5;
+  c.strokeRect(bbX + 1, hy - 14, 8, 22);
+  // Pole
+  c.fillStyle = '#2a2a2a'; c.fillRect(bbX + 2, hy + H*0.14, 6, floorY - hy - H*0.14);
+
+  // RIM
+  c.strokeStyle = '#E05A20'; c.lineWidth = 4;
+  c.beginPath(); c.moveTo(hx - 20, hy); c.lineTo(bbX, hy); c.stroke();
+  c.beginPath(); c.arc(hx - 20, hy, 3, 0, Math.PI*2); c.fillStyle='#E05A20'; c.fill();
+
+  // NET
+  c.strokeStyle = 'rgba(255,255,255,0.3)'; c.lineWidth = 1;
+  var nw = 16;
+  for (var i = 0; i <= 4; i++) {
+    c.beginPath();
+    c.moveTo(hx - nw + i * nw/2, hy);
+    c.lineTo(hx - nw*0.5 + i * nw*0.5/4, hy + 22);
+    c.stroke();
+  }
+  for (var j = 0; j < 3; j++) {
+    c.beginPath(); c.moveTo(hx - nw + 1, hy + 7 + j*7); c.lineTo(hx + 2, hy + 7 + j*7); c.stroke();
+  }
+
+  // PLAYER (at free throw line, front-facing pose)
+  var py2 = floorY;
+  // Body
+  c.fillStyle = '#D98BC9';
+  c.beginPath(); c.ellipse(px, py2 - 26, 10, 18, 0, 0, Math.PI*2); c.fill();
+  // Head
+  c.fillStyle = '#E8B89A';
+  c.beginPath(); c.arc(px, py2 - 50, 10, 0, Math.PI*2); c.fill();
+  // Arms raised for shooting
+  c.strokeStyle = '#D98BC9'; c.lineWidth = 4; c.lineCap = 'round';
+  c.beginPath(); c.moveTo(px - 10, py2 - 36); c.lineTo(px - 22, py2 - 54); c.stroke();
+  c.beginPath(); c.moveTo(px + 10, py2 - 36); c.lineTo(px + 22, py2 - 58); c.stroke();
+  // Legs
+  c.fillStyle = '#2E827D';
+  c.fillRect(px - 9, py2 - 10, 7, 12); c.fillRect(px + 2, py2 - 10, 7, 12);
+  c.fillStyle = '#1E1E1E';
+  c.fillRect(px - 10, py2 - 1, 8, 4); c.fillRect(px + 2, py2 - 1, 8, 4);
+
+  // BALL (held above head when not in flight)
+  if (FT.state !== 'ball' || !FT.ball) {
+    c.beginPath(); c.arc(px + 14, py2 - 64, 11, 0, Math.PI*2);
+    c.fillStyle = '#D27EBE'; c.fill();
+    c.strokeStyle = '#7B426B'; c.lineWidth = 1.5; c.stroke();
+    c.beginPath(); c.moveTo(px + 14, py2 - 75); c.lineTo(px + 14, py2 - 53);
+    c.strokeStyle = '#7B426B'; c.lineWidth = 1; c.stroke();
+    c.beginPath(); c.arc(px + 14, py2 - 64, 11, -0.4, 0.4);
+    c.stroke();
+  }
+
+  // BALL IN FLIGHT
+  if (FT.state === 'ball' && FT.ball) {
+    var b = FT.ball, t = b.t;
+    var bx = b.sx + (b.tx - b.sx) * t;
+    var by = b.sy + (b.ty - b.sy) * t - Math.sin(t * Math.PI) * (H * 0.55);
+    c.beginPath(); c.arc(bx, by, 11, 0, Math.PI*2);
+    c.fillStyle = '#D27EBE'; c.fill();
+    c.strokeStyle = '#7B426B'; c.lineWidth = 1.5; c.stroke();
+    c.beginPath(); c.moveTo(bx, by - 11); c.lineTo(bx, by + 11);
+    c.strokeStyle = '#7B426B'; c.lineWidth = 1; c.stroke();
+    c.beginPath(); c.arc(bx, by, 11, -0.4, 0.4); c.stroke();
+  }
+
+  // SWISH / MISS feedback
+  if (FT.swish) {
+    c.save();
+    c.globalAlpha = Math.max(0, 1 - FT.swish.t * 0.7);
+    c.font = 'bold 32px "Bebas Neue", sans-serif';
+    c.fillStyle = FT.swish.made ? '#6FE0A6' : '#F58AA1';
+    c.textAlign = 'center'; c.textBaseline = 'middle';
+    c.fillText(FT.swish.text, hx, hy - 30 - FT.swish.t * 28);
+    c.restore();
+  }
+
+  // Perfect indicator on meter zone hit
+  if (FT.state === 'needle') {
+    // Pulse the green zone
+    var pulse = 0.7 + Math.sin(Date.now() / 200) * 0.3;
+    var zone = document.getElementById('ft-meter-zone');
+    if (zone) zone.style.opacity = pulse.toString();
+  }
+
+  // IDLE
+  if (FT.state === 'idle') {
+    c.fillStyle = 'rgba(0,0,0,0.55)'; c.fillRect(0,0,W,H);
+    c.textAlign = 'center'; c.textBaseline = 'middle';
+    c.font = 'bold 44px "Bebas Neue", sans-serif';
+    c.fillStyle = '#E89FD6';
+    c.fillText('FREE THROW', W/2, H/2 - 16);
+    c.font = '15px "Fredoka", sans-serif';
+    c.fillStyle = 'rgba(255,246,238,0.7)';
+    c.fillText('10 shots. Tap the meter at the right moment.', W/2, H/2 + 18);
+  }
+
+  // DONE overlay
+  if (FT.state === 'done') {
+    c.fillStyle = 'rgba(0,0,0,0.62)'; c.fillRect(0,0,W,H);
+    c.textAlign = 'center'; c.textBaseline = 'middle';
+    c.font = 'bold 48px "Bebas Neue", sans-serif';
+    c.fillStyle = '#E89FD6';
+    c.fillText(FT.made + ' / 10', W/2, H/2 - 28);
+    c.font = 'bold 30px "Bebas Neue", sans-serif';
+    c.fillStyle = '#6FE0A6';
+    c.fillText(Math.round(FT.made/10*100) + '% from the line', W/2, H/2 + 18);
+  }
+}
+
+function ftLoop() {
+  ftUpdate();
+  ftDraw();
+  requestAnimationFrame(ftLoop);
+}
+
+function ftRenderDots() {
+  var el = document.getElementById('ft-dots');
+  if (!el) return;
+  var html = '';
+  for (var i = 0; i < 10; i++) {
+    var cls = 'ft-dot';
+    var icon = '';
+    if (i < FT.results.length) {
+      cls += FT.results[i] ? ' made' : ' miss';
+      icon = FT.results[i] ? '&#10003;' : '&#10005;';
+    }
+    html += '<div class="' + cls + '">' + icon + '</div>';
+  }
+  el.innerHTML = html;
+}
+
+function ftSaveName() {
+  var name = document.getElementById('ft-name-input').value.trim() || 'Anonymous';
+  FT.scores.push({ name: name, pts: FT.pending, made: FT.made });
+  FT.scores.sort(function(a,b){ return b.pts - a.pts; });
+  if (FT.scores.length > 10) FT.scores = FT.scores.slice(0,10);
+  try { localStorage.setItem('ft_scores', JSON.stringify(FT.scores)); } catch(e) {}
+  document.getElementById('ft-name-wrap').classList.remove('show');
+  document.getElementById('ft-name-input').value = '';
+  ftRenderLB();
+}
+
+function ftRenderLB() {
+  var el = document.getElementById('ft-lb-rows');
+  if (!el) return;
+  if (!FT.scores.length) { el.innerHTML = '<div class="lb-empty">No scores yet. Shoot first!</div>'; return; }
+  var medals = ['&#127947;','&#129352;','&#129353;'];
+  el.innerHTML = FT.scores.map(function(s,i){
+    var rc = i===0?'gold':i===1?'silver':i===2?'bronze':'';
+    var rk = i < 3 ? medals[i] : '#'+(i+1);
+    return '<div class="lb-row"><div class="lb-rank '+rc+'">'+rk+'</div><div class="lb-name">'+s.name+'</div><div class="lb-pts">'+s.pts+'%<span style="font-size:14px;opacity:0.6"> ('+s.made+'/10)</span></div></div>';
+  }).join('');
+}
+</script>
